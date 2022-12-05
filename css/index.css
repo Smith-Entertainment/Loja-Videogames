@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#HD{
+width: 53%;
+display: flex; 
+justify-content: flex-end; 
+flex-direction: row;
+gap:13%;
+
+}
+a{
+    margin:30px 0 0 0;
+    color: #45F3FF;
+    font-family: 'Poppins', sans-serif;
+}
+.logo{
+
+    width: 287px;
+    height: 85px;
+
+}
+header{
+    display: flex;
+    flex-direction: row;
+    border-bottom: 1px solid black;
+    background:  #1C1C1C;
+}
