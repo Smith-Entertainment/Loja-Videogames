@@ -7,22 +7,24 @@
 }
 
 #HD{
-width: 53%;
+
 display: flex; 
 justify-content: flex-end; 
 flex-direction: row;
-gap:13%;
+gap: 7rem;
 
 }
-a{
-    margin:30px 0 0 0;
+.AA{
+   
+    margin:30px 0 0 330px;
     color: #45F3FF;
     font-family: 'Poppins', sans-serif;
+
 }
 .logo{
 
-    width: 287px;
-    height: 85px;
+    width:5%;
+    height: auto;
 
 }
 header{
@@ -30,4 +32,17 @@ header{
     flex-direction: row;
     border-bottom: 1px solid black;
     background:  #1C1C1C;
+}
+.SG{
+
+    display: flex;
+    flex-direction: row;
+
+}
+.text{
+    color: #45F3FF;
+    margin:20px 0 0 80px;
+    font-size: 30px;
+    font-family: poppins;
+
 }
