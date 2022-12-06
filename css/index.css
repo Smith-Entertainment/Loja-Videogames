@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
 
@@ -5,16 +6,15 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-
+    text-decoration: none;
 }
 
 body {
-    background-color: #34353D;
+    background: #34353D;
+    font-family: 'Poppins', sans-serif;
 }
 
-
-#as-menu {
+#as-menu{
     display: flex;
     flex-direction: column;
     width: 18vw;
@@ -24,7 +24,7 @@ body {
     background-color: #1c1c1c;
 }
 
-.container-filtro {
+.container-filtro{
     width: 15vw;
     height: 7vh;
     margin-top: 3vh;
@@ -33,18 +33,18 @@ body {
     text-align: start;
 }
 
-#as-menu :hover {
+#as-menu :hover{
     background-color: #34353D;
     border-radius: 7px;
 }
 
-.container-filtro h4 {
+.container-filtro h4{
     display: inline-block;
     margin-left: 15px;
 }
 
 
-.img-categoria {
+.img-categoria{
     width: 25px;
     height: 25px;
     margin-top: 1vh;
@@ -52,95 +52,67 @@ body {
 
 }
 
-footer {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+footer{
     width: 100%;
     height: 7vh;
-    background-color: #1c1c1c;
+    background-color: #1c1c1c ;
     position: relative;
-    top: 1030px;
+    top:1000px;
 }
 
-
-#elements-izq {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    width: 20vw;
-    height: 6vh;
-    color: #45F3FF;
-}
-
-
-#img-footer {
-    width: 60px;
-    height: 60px;
-    margin-right: 1vw;
-}
-
-
-#elements-dir {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    justify-content: space-around;
-    width: 25vw;
-    height: 6vh;
-    color: #45F3FF;
-
-}
 #img-footer{
     width: 100px;
     height: 100px;
 }
 
-#HD{
+#HD {
 
-display: flex; 
-justify-content: flex-end; 
-flex-direction: row;
-gap: 7rem;
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: row;
+    gap: 7rem;
 
 }
-.AA{
-   
-    
+
+.AA {
+
+
     color: #45F3FF;
     font-family: 'Poppins', sans-serif;
-    margin-right: 30vw ;
+    margin-right: 30vw;
 
 }
-.logo{
 
-    width:5%;
+.logo {
+
+    width: 5%;
     height: auto;
 
 }
-header{
+
+header {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     text-align: center;
     border-bottom: 1px solid black;
-    background:  #1C1C1C;
+    background: #1C1C1C;
     align-items: center;
     position: fixed;
     width: 100%;
-    
+
 }
-.SG{
+
+.SG {
 
     display: flex;
     flex-direction: row;
 
 }
-.text{
+
+.text {
     color: #45F3FF;
-    margin:20px 0 0 80px;
+    margin: 20px 0 0 80px;
     font-size: 30px;
     font-family: poppins;
 
