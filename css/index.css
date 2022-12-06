@@ -93,3 +93,55 @@ footer {
     color: #45F3FF;
 
 }
+#img-footer{
+    width: 100px;
+    height: 100px;
+}
+
+#HD{
+
+display: flex; 
+justify-content: flex-end; 
+flex-direction: row;
+gap: 7rem;
+
+}
+.AA{
+   
+    
+    color: #45F3FF;
+    font-family: 'Poppins', sans-serif;
+    margin-right: 30vw ;
+
+}
+.logo{
+
+    width:5%;
+    height: auto;
+
+}
+header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: center;
+    border-bottom: 1px solid black;
+    background:  #1C1C1C;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    
+}
+.SG{
+
+    display: flex;
+    flex-direction: row;
+
+}
+.text{
+    color: #45F3FF;
+    margin:20px 0 0 80px;
+    font-size: 30px;
+    font-family: poppins;
+
+}
