@@ -1,4 +1,3 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
 
@@ -10,11 +9,10 @@
 }
 
 body {
-    background: #34353D;
     font-family: 'Poppins', sans-serif;
 }
 
-#as-menu{
+#as-menu {
     display: flex;
     flex-direction: column;
     width: 18vw;
@@ -24,7 +22,7 @@ body {
     background-color: #1c1c1c;
 }
 
-.container-filtro{
+.container-filtro {
     width: 15vw;
     height: 7vh;
     margin-top: 3vh;
@@ -33,18 +31,18 @@ body {
     text-align: start;
 }
 
-#as-menu :hover{
+#as-menu :hover {
     background-color: #34353D;
     border-radius: 7px;
 }
 
-.container-filtro h4{
+.container-filtro h4 {
     display: inline-block;
     margin-left: 15px;
 }
 
 
-.img-categoria{
+.img-categoria {
     width: 25px;
     height: 25px;
     margin-top: 1vh;
@@ -52,15 +50,15 @@ body {
 
 }
 
-footer{
+footer {
     width: 100%;
     height: 7vh;
-    background-color: #1c1c1c ;
+    background-color: #1c1c1c;
     position: relative;
-    top:1000px;
+    top: 1000px;
 }
 
-#img-footer{
+#img-footer {
     width: 100px;
     height: 100px;
 }
@@ -95,7 +93,6 @@ header {
     flex-direction: row;
     justify-content: space-between;
     text-align: center;
-    border-bottom: 1px solid black;
     background: #1C1C1C;
     align-items: center;
     position: fixed;
@@ -116,4 +113,54 @@ header {
     font-size: 30px;
     font-family: poppins;
 
+}
+
+main {
+    background-color: #23242A;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.article_games {
+    display: flex;
+    flex-direction: column;
+    padding-top: 8vw;
+    padding-left: 20vw;
+    align-items: center;
+}
+
+.main_games {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+#btn_carregar_mais {
+    width: 20vw;
+    height: 10vh;
+    border-radius: 1rem;
+    font-size: 1.5rem;
+    color: #45F3FF;
+    background-color: #34353D;
+    border: none;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    text-align: center;
+}
+
+#btn_carregar_mais:hover {
+    width: 20vw;
+    height: 10vh;
+    border-radius: 1rem;
+    font-size: 1.5rem;
+    color: white;
+    background-color: #34353D;
+    border: none;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    text-align: center;
 }
