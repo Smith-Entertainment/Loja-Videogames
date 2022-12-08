@@ -124,32 +124,71 @@ header {
 }
 
 main {
-
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     justify-content: space-around;
+    margin-top: 5vh;
 }
 
-.article_games {
+.banner {
     display: flex;
-    flex-direction: column;
-    padding-top: 8vw;
-    padding-left: 21.5vw;
-    align-items: center;
+    background-color: #45F3FF;
+    /*REMOVER A COR ANTES DA ENTREGA*/
+    width: 74vw;
+    height: 45vh;
+    border-radius: 1rem;
+    align-items: flex-end;
+    align-self: center;
+    padding-left: 1rem;
+}
+
+#subtitulo {
+
+    width: 74vw;
+    height: 10vh;
+    display: flex;
+    align-items: flex-end;
+    align-self: center;
+    color: #45F3FF;
+    font-weight: 700;
+    font-size: 1.5rem;
+
 }
 
 .main_games {
+    padding-top: 10vh;
     display: flex;
     flex-direction: row;
-    justify-content: flex-start;
+    justify-content: center;
     flex-wrap: wrap;
-    width: 100%;
     gap: 2.5vw;
 }
 
+.game {
+    /*DIV DOS GAMES*/
+    background-color: #45F3FF;
+    /*REMOVER A COR ANTES DA ENTREGA*/
+    width: 23vw;
+    height: 38vh;
+    border-radius: 1rem;
+    display: flex;
+    align-items: flex-end;
+    padding-left: 1rem;
+}
+
+#div_btn {
+    width: 74vw;
+    height: 20vh;
+    /*REVISAR*/
+    display: flex;
+    align-self: center;
+    justify-content: center;
+    padding-top: 5vh;
+}
+
 #btn_carregar_mais {
-    width: 20vw;
+    width: 28vw;
     height: 10vh;
     border-radius: 1rem;
     font-size: 1.5rem;
@@ -159,10 +198,11 @@ main {
     font-family: 'Poppins', sans-serif;
     font-weight: 400;
     text-align: center;
+
 }
 
 #btn_carregar_mais:hover {
-    width: 20vw;
+    width: 28vw;
     height: 10vh;
     border-radius: 1rem;
     font-size: 1.5rem;
@@ -172,15 +212,4 @@ main {
     font-family: 'Poppins', sans-serif;
     font-weight: 400;
     text-align: center;
-}
-
-.game {
-    background-color: #45F3FF;
-    /*REMOVER A COR ANTES DA ENTREGA*/
-    width: 23vw;
-    height: 38vh;
-    border-radius: 1rem;
-    display: flex;
-    align-items: flex-end;
-    padding-left: 0.5rem;
 }
