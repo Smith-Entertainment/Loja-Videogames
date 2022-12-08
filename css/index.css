@@ -41,6 +41,9 @@ body {
     border-radius: 7px;
 }
 
+#as-menu h4:hover {
+    color: #FFFFFF;
+}
 
 .img-categoria {
     width: 25px;
@@ -91,6 +94,10 @@ footer {
 
 }
 
+#HD p:hover {
+    color: #FFFFFF;
+}
+
 .AA {
     color: #45F3FF;
     font-family: 'Poppins', sans-serif;
@@ -132,15 +139,30 @@ main {
 }
 
 .banner {
-    display: flex;
-    background-color: #45F3FF;
     /*REMOVER A COR ANTES DA ENTREGA*/
     width: 74vw;
     height: 45vh;
     border-radius: 1rem;
-    align-items: flex-end;
     align-self: center;
-    padding-left: 1rem;
+
+}
+
+.banner h4 {
+    color: #45F3FF;
+    padding-left: 0.5vw;
+    font-size: 1.5rem;
+    position: relative;
+    top: 38vh;
+    /*---------------AJUSTAR ISSO------*/
+
+}
+
+#img_banner img {
+    width: 74vw;
+    height: 45vh;
+    border-radius: 1rem;
+    position: absolute;
+    background-color: #FFFFFF;
 }
 
 #subtitulo {
@@ -152,7 +174,7 @@ main {
     align-self: center;
     color: #45F3FF;
     font-weight: 700;
-    font-size: 1.5rem;
+    font-size: 1.8rem;
 
 }
 
@@ -167,17 +189,37 @@ main {
 
 .game {
     /*DIV DOS GAMES*/
-    background-color: #45F3FF;
+    background-color: #FFFFFF;
     /*REMOVER A COR ANTES DA ENTREGA*/
     width: 23vw;
     height: 38vh;
     border-radius: 1rem;
     display: flex;
-    align-items: flex-end;
-    padding-left: 1rem;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    color: #45F3FF;
 }
 
+.game h4 {
+    padding-left: 0.5vh;
+}
+
+#thumbnail {
+    background-color: #45F3FF;
+    width: 23vw;
+    height: 30vh;
+    border-radius: 1rem;
+}
+
+/*-----------------AJEITAR BOTAO-------*/
+#btn_favoritar {
+    width: 2.5vw;
+    height: 5vh;
+}
+
+/*-----------------AJEITAR BOTAO------*/
 #div_btn {
+    /*CARREGAR MAIS*/
     width: 74vw;
     height: 20vh;
     /*REVISAR*/
