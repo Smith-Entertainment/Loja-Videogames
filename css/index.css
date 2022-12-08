@@ -10,6 +10,7 @@
 
 body {
     font-family: 'Poppins', sans-serif;
+    background-color: #23242A;
 }
 
 #as-menu {
@@ -161,7 +162,7 @@ header {
 }
 
 main {
-    background-color: #23242A;
+
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
@@ -172,7 +173,7 @@ main {
     display: flex;
     flex-direction: column;
     padding-top: 8vw;
-    padding-left: 20vw;
+    padding-left: 21.5vw;
     align-items: center;
 }
 
@@ -182,6 +183,7 @@ main {
     justify-content: flex-start;
     flex-wrap: wrap;
     width: 100%;
+    gap: 2.5vw;
 }
 
 #btn_carregar_mais {
@@ -208,4 +210,15 @@ main {
     font-family: 'Poppins', sans-serif;
     font-weight: 400;
     text-align: center;
+}
+
+.game {
+    background-color: #45F3FF;
+    /*REMOVER A COR ANTES DA ENTREGA*/
+    width: 23vw;
+    height: 38vh;
+    border-radius: 1rem;
+    display: flex;
+    align-items: flex-end;
+    padding-left: 0.5rem;
 }
