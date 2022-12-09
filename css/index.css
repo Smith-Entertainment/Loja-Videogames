@@ -189,7 +189,7 @@ main {
 
 .game {
     /*DIV DOS GAMES*/
-    background-color: #FFFFFF;
+    background-color: #34353D;
     /*REMOVER A COR ANTES DA ENTREGA*/
     width: 23vw;
     height: 38vh;
@@ -215,6 +215,20 @@ main {
 #btn_favoritar {
     width: 2.5vw;
     height: 5vh;
+    border: none;
+    background-color: none;
+    background: none;
+    color: #45F3FF;
+    cursor: pointer;
+}
+
+.material-symbols-outlined {
+    /*Estrela do favoritos*/
+    font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 48
 }
 
 /*-----------------AJEITAR BOTAO------*/
