@@ -1,13 +1,8 @@
-var quantJogos = 10;
-
-function somarJogos (quantJogos){
-	quantJogos = quantJogos + 10;
-}
 
 function Mostjogos(jogos) {
-	document.getElementById("containerJogo").innerHTML = ''
+
 	for (i = 0; i < quantJogos; i++) {
-		document.getElementById("containerJogo").innerHTML += `<div id="game"> 
+		document.getElementById("containerJogo").innerHTML = `<div id="game"> 
 		<h2> Titulo: ${jogos[i].title} </h2> <p> Genre: ${jogos[i].genre} </p>
 		 <img src="${jogos[i].thumbnail}"> </div>`;;
 
@@ -40,27 +35,3 @@ const verJogos = (category) => {
 
 
 
-
-let buttonFantasy = document.getElementById("fantasy");
-buttonFantasy.addEventListener('click',() => verJogos("fantasy"));
-
-let buttonShooter = document.getElementById("shooter");
-buttonShooter.addEventListener('click',() => verJogos("Shooter"));
-
-let buttonSocial = document.getElementById("social");
-buttonSocial.addEventListener('click',() => verJogos("Social"));
-
-let buttonMMORPG = document.getElementById("MMORPG");
-buttonMMORPG.addEventListener('click',() => verJogos("MMORPG"));
-
-let buttonStrategy = document.getElementById("Strategy");
-buttonStrategy.addEventListener('click',() => verJogos("Strategy"));
-
-let buttonFighting = document.getElementById("Fighting");
-buttonFighting.addEventListener('click',() => verJogos("Fighting"));
-
-let buttonSports = document.getElementById("Sports");
-buttonSports.addEventListener('click',() => verJogos("Sports"));
-
-//let buttonMostrarMais = document.getElementById("mostrarMais");
-//buttonMostrarMais.addEventListener('click',somarJogos(quantJogos));
