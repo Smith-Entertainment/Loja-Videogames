@@ -34,6 +34,7 @@ body {
     gap: 1vw;
     color: #45F3FF;
     text-align: start;
+    cursor: pointer;
 }
 
 #as-menu :hover {
@@ -93,10 +94,14 @@ footer {
     gap: 7rem;
 
 }
+#HD p{
+    cursor: pointer;
+}
 
 #HD p:hover {
     color: #FFFFFF;
 }
+
 
 .AA {
     color: #45F3FF;
