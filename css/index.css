@@ -275,3 +275,14 @@ main {
     font-weight: 400;
     text-align: center;
 }
+span{
+    display: none;
+}
+#alinhar_text_botao{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    width:50vh;
+    padding-left: 0.2rem;
+}
