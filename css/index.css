@@ -5,30 +5,33 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-
+    text-decoration: none;
 }
 
 body {
-    background-color: #34353D;
+    font-family: 'Poppins', sans-serif;
+    background-color: #23242A;
 }
-
 
 #as-menu {
     display: flex;
     flex-direction: column;
     width: 18vw;
-    height: 86vh;
-    position: fixed;
-    margin-top: 8vh;
+    gap: 1vw;
     background-color: #1c1c1c;
+    float: left;
+    padding: 1vh 1vw;
 }
 
+
 .container-filtro {
-    width: 15vw;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    padding-left: 20%;
+    align-items: center;
     height: 7vh;
-    margin-top: 3vh;
-    margin-left: 1vw;
+    gap: 1vw;
     color: #45F3FF;
     text-align: start;
 }
@@ -38,29 +41,30 @@ body {
     border-radius: 7px;
 }
 
-.container-filtro h4 {
-    display: inline-block;
-    margin-left: 15px;
+#as-menu h4:hover {
+    color: #FFFFFF;
 }
-
 
 .img-categoria {
     width: 25px;
     height: 25px;
-    margin-top: 1vh;
-    margin-left: 50px;
-
 }
 
 footer {
+    padding: 0 5vw;
     display: flex;
     flex-direction: row;
     position: fixed;
     justify-content: space-between;
-    width: 100%;
+    align-items: center;
+    background-color: #1c1c1c;
     height: 10vh;
-    background-color:#1C1C1C;
-    top: 900px;
+    border-top: 1px solid #45F3FF;
+}
+
+.img_logo {
+    width: auto;
+    height: 10vh;
 }
 
 
@@ -70,8 +74,6 @@ footer {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    width: 20vw;
-    height: 6vh;
     color: #45F3FF;
 }
 
@@ -84,9 +86,7 @@ footer {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    justify-content: space-around;
-    width: 25vw;
-    height: 6vh;
+    gap: 2vw;
     color: #45F3FF;
 
 }
@@ -98,50 +98,187 @@ footer {
     margin-right: 1vw;
 }
 
-#HD{
+#HD {
 
-display: flex; 
-justify-content: flex-end; 
-flex-direction: row;
-gap: 7rem;
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: row;
+    gap: 7rem;
 
 }
-.AA{
-   
-    
+
+#HD p:hover {
+    color: #FFFFFF;
+}
+
+.AA {
     color: #45F3FF;
     font-family: 'Poppins', sans-serif;
-    margin-right: 30vw ;
-
+    margin-right: 30vw;
 }
-.logo{
 
-    width:5%;
-    height: auto;
-
-}
-header{
+header {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     text-align: center;
-    border-bottom: 1px solid black;
-    background:  #1C1C1C;
+    background: #1C1C1C;
     align-items: center;
-    position: fixed;
-    width: 100%;
-    
+    height: 10vh;
+    border-bottom: 1px solid #45F3FF;
+
 }
-.SG{
+
+.SG {
 
     display: flex;
     flex-direction: row;
+    align-items: center;
 
 }
-.text{
-    color: #45F3FF;
-    margin:20px 0 0 80px;
-    font-size: 30px;
-    font-family: poppins;
 
+.text {
+    color: #45F3FF;
+    font-size: 30px;
+
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-top: 5vh;
+}
+
+.banner {
+    /*REMOVER A COR ANTES DA ENTREGA*/
+    width: 74vw;
+    height: 45vh;
+    border-radius: 1rem;
+    align-self: center;
+
+}
+
+.banner h4 {
+    color: #45F3FF;
+    padding-left: 0.5vw;
+    font-size: 1.5rem;
+    position: relative;
+    top: 38vh;
+    /*---------------AJUSTAR ISSO------*/
+
+}
+
+#img_banner img {
+    width: 74vw;
+    height: 45vh;
+    border-radius: 1rem;
+    position: absolute;
+    background-color: #FFFFFF;
+}
+
+#subtitulo {
+
+    width: 74vw;
+    height: 10vh;
+    display: flex;
+    align-items: flex-end;
+    align-self: center;
+    color: #45F3FF;
+    font-weight: 700;
+    font-size: 1.8rem;
+
+}
+
+.main_games {
+    padding-top: 10vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2.5vw;
+}
+
+.game {
+    /*DIV DOS GAMES*/
+    background-color: #34353D;
+    /*REMOVER A COR ANTES DA ENTREGA*/
+    width: 23vw;
+    height: 38vh;
+    border-radius: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    color: #45F3FF;
+}
+
+.game h4 {
+    padding-left: 0.5vh;
+}
+
+#thumbnail {
+    background-color: #45F3FF;
+    width: 23vw;
+    height: 30vh;
+    border-radius: 1rem;
+}
+
+/*-----------------AJEITAR BOTAO-------*/
+#btn_favoritar {
+    width: 2.5vw;
+    height: 5vh;
+    border: none;
+    background-color: none;
+    background: none;
+    color: #45F3FF;
+    cursor: pointer;
+}
+
+.material-symbols-outlined {
+    /*Estrela do favoritos*/
+    font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 48
+}
+
+/*-----------------AJEITAR BOTAO------*/
+#div_btn {
+    /*CARREGAR MAIS*/
+    width: 74vw;
+    height: 20vh;
+    /*REVISAR*/
+    display: flex;
+    align-self: center;
+    justify-content: center;
+    padding-top: 5vh;
+}
+
+#btn_carregar_mais {
+    width: 28vw;
+    height: 10vh;
+    border-radius: 1rem;
+    font-size: 1.5rem;
+    color: #45F3FF;
+    background-color: #34353D;
+    border: none;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    text-align: center;
+
+}
+
+#btn_carregar_mais:hover {
+    width: 28vw;
+    height: 10vh;
+    border-radius: 1rem;
+    font-size: 1.5rem;
+    color: white;
+    background-color: #34353D;
+    border: none;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    text-align: center;
 }

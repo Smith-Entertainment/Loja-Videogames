@@ -10,7 +10,6 @@ function Mostjogos(jogos) {
 	}
 }
 
-
 const verJogos = (category) => {
 	const options = {
 		method: 'GET',
@@ -30,7 +29,6 @@ const verJogos = (category) => {
 		.catch(err => console.error(err));
 
 }
-
 
 
 
