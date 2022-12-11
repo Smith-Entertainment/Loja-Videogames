@@ -7,10 +7,12 @@ let slc_plat;
 
 const selecao_genero = (gen) => {
 	slc_gen = gen;
-	verJogos(slc_gen);
+	verJogos(slc_gen, slc_plat);
 }
+
 const selecao_plataforma = (plat) => {
 	slc_plat = plat;
+	verJogos(slc_gen, slc_plat);
 }
 
 function somarJogos() {
@@ -40,7 +42,7 @@ function Mostjogos(jogos) {
 	}
 }
 
-const verJogos = (category) => {
+const verJogos = (category, plataform) => {
 	const options = {
 		method: 'GET',
 		headers: {
@@ -49,9 +51,7 @@ const verJogos = (category) => {
 		}
 	};
 
-	console.log(category)
-
-	fetch(`https://free-to-play-games-database.p.rapidapi.com/api/games?category=${category}`, options)
+	fetch(`https://free-to-play-games-database.p.rapidapi.com/api/games?platform=${plataform}&category=${category}`, options)
 		.then(response => response.json())
 		.then(response => {
 
@@ -90,6 +90,6 @@ generos[5].addEventListener('click',() => selecao_genero(generos[5].id));
 generos[6].addEventListener('click',() => selecao_genero(generos[6].id));
 generos[7].addEventListener('click',() => selecao_genero(generos[7].id));
 
-generos[0].addEventListener('click',() => selecao_plataforma(plataforma[0].id));
-generos[1].addEventListener('click',() => selecao_plataforma(plataforma[1].id));
-generos[2].addEventListener('click',() => selecao_plataforma(plataforma[2].id));
+plataforma[0].addEventListener('click',() => selecao_plataforma(plataforma[0].id));
+plataforma[1].addEventListener('click',() => selecao_plataforma(plataforma[1].id));
+plataforma[2].addEventListener('click',() => selecao_plataforma(plataforma[2].id));
