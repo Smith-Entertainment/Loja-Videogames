@@ -107,7 +107,8 @@ footer {
     gap: 7rem;
 
 }
-#HD p{
+
+#HD p {
     cursor: pointer;
 }
 
@@ -286,13 +287,15 @@ main {
     font-weight: 400;
     text-align: center;
 }
-span{
+
+span {
     display: none;
 }
-#alinhar_text_botao{
+
+#alinhar_text_botao {
     display: flex;
     flex-flow: row nowrap;
     align-items: center;
     justify-content: space-between;
-    width:23vw;
+    width: 23vw;
 }
