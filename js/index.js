@@ -5,7 +5,6 @@ let plataforma = document.getElementsByClassName("slc_plataforma");
 let slc_gen;
 let slc_plat;
 
-
 function somarJogos() {
 	quantJogos += 10;
 }
@@ -32,7 +31,6 @@ function Mostjogos(jogos) {
 		</div></a>`;
 	}
 }
-
 
 const verJogos = (category)  => {
 	const options = {
@@ -75,43 +73,11 @@ const jogosFavoritos = () =>{
 
 jogosFavoritos();
 
-for(var i=0; i < generos.length; i++)
-{
-	generos[i].addEventListener('click', function(){filtros(generos[i].id)});
-}
-
-
-function filtros(genero){
-	slc_gen = genero;
-}
-
-/*
-let buttonFantasy = document.getElementById("fantasy");
-buttonFantasy.addEventListener('click',verJogos("fantasy"));
-
-let buttonShooter = document.getElementById("shooter");
-buttonShooter.addEventListener('click',() => verJogos("Shooter"));
-
-let buttonSocial = document.getElementById("social");
-buttonSocial.addEventListener('click',() => verJogos("Social"));
-
-let buttonMMORPG = document.getElementById("MMORPG");
-buttonMMORPG.addEventListener('click',() => verJogos("MMORPG"));
-
-let buttonStrategy = document.getElementById("Strategy");
-buttonStrategy.addEventListener('click',() => verJogos("Strategy"));
-
-let buttonFighting = document.getElementById("Fighting");
-buttonFighting.addEventListener('click',() => verJogos("Fighting"));
-
-let buttonSports = document.getElementById("Sports");
-buttonSports.addEventListener('click',() => verJogos("Sports"));
-
-let buttonPc = document.getElementById("pc");
-buttonPc.addEventListener('click', () => verJogos("sports", "pc"));
-
-let buttonBrowser = document.getElementById("browser");
-buttonBrowser.addEventListener('click', () => verJogos("shooter", "browser"));
-
-let buttonAll = document.getElementById("all");
-buttonAll.addEventListener('click', () => verJogos("shooter", "all"));*/
+generos[0].addEventListener('click',() => verJogos(generos[0].id));
+generos[1].addEventListener('click',() => verJogos(generos[1].id));
+generos[2].addEventListener('click',() => verJogos(generos[2].id));
+generos[3].addEventListener('click',() => verJogos(generos[3].id));
+generos[4].addEventListener('click',() => verJogos(generos[4].id));
+generos[5].addEventListener('click',() => verJogos(generos[5].id));
+generos[6].addEventListener('click',() => verJogos(generos[6].id));
+generos[7].addEventListener('click',() => verJogos(generos[7].id));
