@@ -1,4 +1,5 @@
 var quantJogos = 10;
+var category;
 
 
 function somarJogos() {
@@ -75,6 +76,8 @@ const jogosFavoritos = () =>{
 		})
 		.catch(err => console.error(err));
 }
+
+
 
 jogosFavoritos();
 
