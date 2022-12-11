@@ -60,7 +60,7 @@ const verJogos = (category) => {
 
 }
 
-const jogosFavoritos = () => {
+const jogosPopulares = () =>{
 	const options = {
 		method: 'GET',
 		headers: {
@@ -78,7 +78,7 @@ const jogosFavoritos = () => {
 		.catch(err => console.error(err));
 }
 
-jogosFavoritos();
+jogosPopulares();
 
 generos[0].addEventListener('click', () => verJogos(generos[0].id));
 generos[1].addEventListener('click', () => verJogos(generos[1].id));
@@ -88,3 +88,11 @@ generos[4].addEventListener('click', () => verJogos(generos[4].id));
 generos[5].addEventListener('click', () => verJogos(generos[5].id));
 generos[6].addEventListener('click', () => verJogos(generos[6].id));
 generos[7].addEventListener('click', () => verJogos(generos[7].id));
+generos[0].addEventListener('click',() => jogosPopulares());
+generos[1].addEventListener('click',() => verJogos(generos[1].id));
+generos[2].addEventListener('click',() => verJogos(generos[2].id));
+generos[3].addEventListener('click',() => verJogos(generos[3].id));
+generos[4].addEventListener('click',() => verJogos(generos[4].id));
+generos[5].addEventListener('click',() => verJogos(generos[5].id));
+generos[6].addEventListener('click',() => verJogos(generos[6].id));
+generos[7].addEventListener('click',() => verJogos(generos[7].id));
