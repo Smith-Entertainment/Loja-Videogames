@@ -7,6 +7,7 @@ function somarJogos() {
 
 function Mostjogos(jogos) {
 	document.getElementById("containerBanner").innerHTML = `<a href="${jogos[0].freetogame_profile_url}" id="freetogame_profile_url">
+
 	<div id="img_banner"><img src="${jogos[0].thumbnail}" id="thumbnail" alt=""></div>
 	<h4 id="title">${jogos[0].title}</h4>
 </a>`
@@ -16,6 +17,7 @@ function Mostjogos(jogos) {
 	buttonMostrarMais.addEventListener('click', somarJogos);
 	for (i = 1; i < quantJogos; i++) {
 		console.log(quantJogos);
+
 		document.getElementById("containerJogo").innerHTML += `
 		<a href="${jogos[i].freetogame_profile_url}" id="freetogame_profile_url"> <div class="game" > <div><img src="${jogos[i].thumbnail}" id="thumbnail" alt=""></div>
 		<div id="alinhar_text_botao">
@@ -27,6 +29,7 @@ function Mostjogos(jogos) {
 		
 		</div>
 		
+
 		</a>`;
 
 		//console.log(jogos[i]);
@@ -107,3 +110,4 @@ buttonSports.addEventListener('click', () => verJogos("Sports"));
 
 //let buttonAll = document.getElementById("all");
 //buttonAll.addEventListener('click', () => verJogos("shooter", "all"));
+
