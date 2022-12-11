@@ -9,8 +9,7 @@ function Mostjogos(jogos) {
 	document.getElementById("containerBanner").innerHTML = `<a href="${jogos[0].freetogame_profile_url}" id="freetogame_profile_url">
 
 	<div id="img_banner"><img src="${jogos[0].thumbnail}" id="thumbnail" alt=""></div>
-	<h4 id="title">${jogos[0].title}</h4>
-</a>`
+	<h4 id="title">${jogos[0].title}</h4></a>`
 
 	document.getElementById("containerJogo").innerHTML = '';
 	let buttonMostrarMais = document.getElementById("div_btn");
@@ -23,14 +22,11 @@ function Mostjogos(jogos) {
 		<div id="alinhar_text_botao">
 			<h4 id="title">${jogos[i].title}</h4>
 			<button id="btn_favoritar"><span class="material-symbols-outlined">star</span></button>
-			<h4 id="genre"></h4>
+		</div>
+		<h4 id="genre"></h4>
 		<h4 id="platform"></h4>
 		</div>
-		
-		</div>
-		
-
-		</a>`;
+		</div></a>`;
 
 		//console.log(jogos[i]);
 	}
@@ -110,4 +106,3 @@ buttonSports.addEventListener('click', () => verJogos("Sports"));
 
 //let buttonAll = document.getElementById("all");
 //buttonAll.addEventListener('click', () => verJogos("shooter", "all"));
-
