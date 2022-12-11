@@ -1,5 +1,6 @@
 var quantJogos = 10;
 
+
 function somarJogos() {
 	quantJogos += 10;
 }
@@ -36,7 +37,7 @@ function Mostjogos(jogos) {
 }
 
 
-const verJogos = (category) => {
+const verJogos = (category)  => {
 	const options = {
 		method: 'GET',
 		headers: {
@@ -44,6 +45,7 @@ const verJogos = (category) => {
 			'X-RapidAPI-Host': 'free-to-play-games-database.p.rapidapi.com'
 		}
 	};
+	
 	console.log(category)
 
 	fetch(`https://free-to-play-games-database.p.rapidapi.com/api/games?category=${category}`, options)
@@ -56,7 +58,28 @@ const verJogos = (category) => {
 
 }
 
+const jogosFavoritos = () =>{
+	const options = {
+		method: 'GET',
+		headers: {
+			'X-RapidAPI-Key': '0c67e168ddmshf8b4ef8bed5ff13p141ca2jsn943ceb9c73c3',
+			'X-RapidAPI-Host': 'free-to-play-games-database.p.rapidapi.com'
+		}
+	};
+	
+	fetch('https://free-to-play-games-database.p.rapidapi.com/api/games?sort-by=popularity', options)
+		.then(response => response.json())
+		.then(response => {
 
+			Mostjogos(response)
+		})
+		.catch(err => console.error(err));
+}
+
+jogosFavoritos();
+
+let buttonHome = document.getElementById("home");
+buttonHome.addEventListener('click', () => jogosFavoritos());
 
 let buttonFantasy = document.getElementById("fantasy");
 buttonFantasy.addEventListener('click', () => verJogos("fantasy"));
