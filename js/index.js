@@ -1,4 +1,9 @@
 var quantJogos = 10;
+let generos = document.getElementsByClassName("container_filtro");
+let plataforma = document.getElementsByClassName("slc_plataforma");
+
+let slc_gen;
+let slc_plat;
 
 
 function somarJogos() {
@@ -14,9 +19,7 @@ function Mostjogos(jogos) {
 	document.getElementById("containerJogo").innerHTML = '';
 	let buttonMostrarMais = document.getElementById("div_btn");
 	buttonMostrarMais.addEventListener('click', somarJogos);
-	for (i = 1; i < quantJogos; i++) {
-		console.log(quantJogos);
-
+	for (var i = 1; i < quantJogos; i++) {
 		document.getElementById("containerJogo").innerHTML += `
 		<a href="${jogos[i].freetogame_profile_url}" id="freetogame_profile_url"> <div class="game" > <div><img src="${jogos[i].thumbnail}" id="thumbnail" alt=""></div>
 		<div id="alinhar_text_botao">
@@ -27,8 +30,6 @@ function Mostjogos(jogos) {
 		<h4 id="platform"></h4>
 		</div>
 		</div></a>`;
-
-		//console.log(jogos[i]);
 	}
 }
 
@@ -74,35 +75,43 @@ const jogosFavoritos = () =>{
 
 jogosFavoritos();
 
-let buttonHome = document.getElementById("home");
-buttonHome.addEventListener('click', () => jogosFavoritos());
+for(var i=0; i < generos.length; i++)
+{
+	generos[i].addEventListener('click', function(){filtros(generos[i].id)});
+}
 
+
+function filtros(genero){
+	slc_gen = genero;
+}
+
+/*
 let buttonFantasy = document.getElementById("fantasy");
-buttonFantasy.addEventListener('click', () => verJogos("fantasy"));
+buttonFantasy.addEventListener('click',verJogos("fantasy"));
 
 let buttonShooter = document.getElementById("shooter");
-buttonShooter.addEventListener('click', () => verJogos("Shooter"));
+buttonShooter.addEventListener('click',() => verJogos("Shooter"));
 
 let buttonSocial = document.getElementById("social");
-buttonSocial.addEventListener('click', () => verJogos("Social"));
+buttonSocial.addEventListener('click',() => verJogos("Social"));
 
 let buttonMMORPG = document.getElementById("MMORPG");
-buttonMMORPG.addEventListener('click', () => verJogos("MMORPG"));
+buttonMMORPG.addEventListener('click',() => verJogos("MMORPG"));
 
 let buttonStrategy = document.getElementById("Strategy");
-buttonStrategy.addEventListener('click', () => verJogos("Strategy"));
+buttonStrategy.addEventListener('click',() => verJogos("Strategy"));
 
 let buttonFighting = document.getElementById("Fighting");
-buttonFighting.addEventListener('click', () => verJogos("Fighting"));
+buttonFighting.addEventListener('click',() => verJogos("Fighting"));
 
 let buttonSports = document.getElementById("Sports");
-buttonSports.addEventListener('click', () => verJogos("Sports"));
+buttonSports.addEventListener('click',() => verJogos("Sports"));
 
-//let buttonPc = document.getElementById("pc");
-//buttonPc.addEventListener('click', () => verJogos("sports", "pc"));
+let buttonPc = document.getElementById("pc");
+buttonPc.addEventListener('click', () => verJogos("sports", "pc"));
 
-//let buttonBrowser = document.getElementById("browser");
-//buttonBrowser.addEventListener('click', () => verJogos("shooter", "browser"));
+let buttonBrowser = document.getElementById("browser");
+buttonBrowser.addEventListener('click', () => verJogos("shooter", "browser"));
 
-//let buttonAll = document.getElementById("all");
-//buttonAll.addEventListener('click', () => verJogos("shooter", "all"));
+let buttonAll = document.getElementById("all");
+buttonAll.addEventListener('click', () => verJogos("shooter", "all"));*/

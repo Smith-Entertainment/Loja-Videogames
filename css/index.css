@@ -24,7 +24,7 @@ body {
 }
 
 
-.container-filtro {
+.container_filtro {
     display: flex;
     flex-flow: row nowrap;
     justify-content: flex-start;
