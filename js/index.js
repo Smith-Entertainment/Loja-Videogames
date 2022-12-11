@@ -59,6 +59,7 @@ const verJogos = (category) => {
 		})
 		.catch(err => console.error(err));
 
+		
 }
 
 const jogosPopulares = () =>{
