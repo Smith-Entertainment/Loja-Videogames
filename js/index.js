@@ -5,6 +5,13 @@ let plataforma = document.getElementsByClassName("slc_plataforma");
 let slc_gen;
 let slc_plat;
 
+const selecao_genero = () => {
+	selecao_genero = slc_gen;
+}
+const selecao_plataforma = () => {
+	selecao_plataforma = slc;
+}
+
 function somarJogos() {
 	quantJogos += 10;
 }
@@ -32,7 +39,7 @@ function Mostjogos(jogos) {
 	}
 }
 
-const verJogos = (category)  => {
+const verJogos = (category) => {
 	const options = {
 		method: 'GET',
 		headers: {
@@ -40,7 +47,7 @@ const verJogos = (category)  => {
 			'X-RapidAPI-Host': 'free-to-play-games-database.p.rapidapi.com'
 		}
 	};
-	
+
 	console.log(category)
 
 	fetch(`https://free-to-play-games-database.p.rapidapi.com/api/games?category=${category}`, options)
@@ -53,7 +60,7 @@ const verJogos = (category)  => {
 
 }
 
-const jogosFavoritos = () =>{
+const jogosFavoritos = () => {
 	const options = {
 		method: 'GET',
 		headers: {
@@ -61,7 +68,7 @@ const jogosFavoritos = () =>{
 			'X-RapidAPI-Host': 'free-to-play-games-database.p.rapidapi.com'
 		}
 	};
-	
+
 	fetch('https://free-to-play-games-database.p.rapidapi.com/api/games?sort-by=popularity', options)
 		.then(response => response.json())
 		.then(response => {
@@ -73,11 +80,11 @@ const jogosFavoritos = () =>{
 
 jogosFavoritos();
 
-generos[0].addEventListener('click',() => verJogos(generos[0].id));
-generos[1].addEventListener('click',() => verJogos(generos[1].id));
-generos[2].addEventListener('click',() => verJogos(generos[2].id));
-generos[3].addEventListener('click',() => verJogos(generos[3].id));
-generos[4].addEventListener('click',() => verJogos(generos[4].id));
-generos[5].addEventListener('click',() => verJogos(generos[5].id));
-generos[6].addEventListener('click',() => verJogos(generos[6].id));
-generos[7].addEventListener('click',() => verJogos(generos[7].id));
+generos[0].addEventListener('click', () => verJogos(generos[0].id));
+generos[1].addEventListener('click', () => verJogos(generos[1].id));
+generos[2].addEventListener('click', () => verJogos(generos[2].id));
+generos[3].addEventListener('click', () => verJogos(generos[3].id));
+generos[4].addEventListener('click', () => verJogos(generos[4].id));
+generos[5].addEventListener('click', () => verJogos(generos[5].id));
+generos[6].addEventListener('click', () => verJogos(generos[6].id));
+generos[7].addEventListener('click', () => verJogos(generos[7].id));
