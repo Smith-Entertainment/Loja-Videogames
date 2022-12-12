@@ -24,7 +24,7 @@ body {
 }
 
 
-.container-filtro {
+.container_filtro {
     display: flex;
     flex-flow: row nowrap;
     justify-content: flex-start;
@@ -197,7 +197,7 @@ main {
 }
 
 .main_games {
-    padding-top: 10vh;
+    padding-top: 5vh;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -210,7 +210,6 @@ main {
     background-color: #34353D;
     /*REMOVER A COR ANTES DA ENTREGA*/
     width: 23vw;
-    height: 38vh;
     border-radius: 1rem;
     display: flex;
     flex-wrap: wrap;
@@ -219,11 +218,10 @@ main {
 }
 
 .game h4 {
-    padding-left: 0.5vh;
+    padding-left: 0.5vw;
 }
 
 #thumbnail {
-    background-color: #45F3FF;
     width: 23vw;
     height: 30vh;
     border-radius: 1rem;
@@ -293,9 +291,8 @@ span{
 }
 #alinhar_text_botao{
     display: flex;
+    flex-flow: row nowrap;
     align-items: center;
     justify-content: space-between;
-    flex-direction: row;
-    width:50vh;
-    padding-left: 0.2rem;
+    width:23vw;
 }
