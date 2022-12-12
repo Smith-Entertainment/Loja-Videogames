@@ -2,14 +2,23 @@ var quantJogos = 10;
 let generos = document.getElementsByClassName("container_filtro");
 let plataforma = document.getElementsByClassName("slc_plataforma");
 
-let slc_gen;
+let slc_gen = "";
 let slc_plat = "all";
 
 const selecao_genero = (gen) => {
 	if(quantJogos>10){
 		quantJogos = 10;
 	}
-	slc_gen = gen;
+
+	if(gen == "home")
+	{
+		slc_gen = "";
+	}
+	else
+	{
+		slc_gen = gen;
+	}
+
 	verJogos(slc_gen, slc_plat);
 }
 
@@ -59,37 +68,28 @@ const verJogos = (category, plataform) => {
 		}
 	};
 
-	fetch(`https://free-to-play-games-database.p.rapidapi.com/api/games?platform=${plataform}&category=${category}`, options)
+	var categoria;
+	
+	if(category == "")
+	{
+		categoria = ``;
+	}
+	else
+	{
+		categoria = `&category=${category}`;
+	}
+	
+	fetch(`https://free-to-play-games-database.p.rapidapi.com/api/games?platform=${plataform}${categoria}&sort-by=popularity`, options)
 		.then(response => response.json())
 		.then(response => {
-
 			Mostjogos(response);
 		})
 		.catch(err => console.error(err));
-
 }
 
-const jogosPopulares = () =>{
-	const options = {
-		method: 'GET',
-		headers: {
-			'X-RapidAPI-Key': '0c67e168ddmshf8b4ef8bed5ff13p141ca2jsn943ceb9c73c3',
-			'X-RapidAPI-Host': 'free-to-play-games-database.p.rapidapi.com'
-		}
-	};
+verJogos(slc_gen, slc_plat);
 
-	fetch('https://free-to-play-games-database.p.rapidapi.com/api/games?sort-by=popularity', options)
-		.then(response => response.json())
-		.then(response => {
-
-			Mostjogos(response)
-		})
-		.catch(err => console.error(err));
-}
-
-jogosPopulares();
-
-generos[0].addEventListener('click',() => jogosPopulares());
+generos[0].addEventListener('click',() => selecao_genero(generos[0].id));
 generos[1].addEventListener('click',() => selecao_genero(generos[1].id));
 generos[2].addEventListener('click',() => selecao_genero(generos[2].id));
 generos[3].addEventListener('click',() => selecao_genero(generos[3].id));
