@@ -3,21 +3,30 @@ let generos = document.getElementsByClassName("container_filtro");
 let plataforma = document.getElementsByClassName("slc_plataforma");
 
 let slc_gen;
-let slc_plat;
+let slc_plat = "all";
 
 const selecao_genero = (gen) => {
+	if(quantJogos>10){
+		quantJogos = 10;
+	}
 	slc_gen = gen;
 	verJogos(slc_gen, slc_plat);
 }
 
 const selecao_plataforma = (plat) => {
+	if(quantJogos>10){
+		quantJogos = 10;
+	}
 	slc_plat = plat;
 	verJogos(slc_gen, slc_plat);
 }
 
 function somarJogos() {
 	quantJogos += 10;
+	verJogos(slc_gen, slc_plat);
 }
+let buttonMostrarMais = document.getElementById("btn_carregar_mais");
+	buttonMostrarMais.addEventListener('click', somarJogos);
 
 function Mostjogos(jogos) {
 	document.getElementById("containerBanner").innerHTML = `<a href="${jogos[0].freetogame_profile_url}" id="freetogame_profile_url">
@@ -26,8 +35,7 @@ function Mostjogos(jogos) {
 	<h4 id="title">${jogos[0].title}</h4></a>`
 
 	document.getElementById("containerJogo").innerHTML = '';
-	let buttonMostrarMais = document.getElementById("div_btn");
-	buttonMostrarMais.addEventListener('click', somarJogos);
+	
 	for (var i = 1; i < quantJogos; i++) {
 		document.getElementById("containerJogo").innerHTML += `
 		<a href="${jogos[i].freetogame_profile_url}" id="freetogame_profile_url"> <div class="game" > <div><img src="${jogos[i].thumbnail}" id="thumbnail" alt=""></div>
