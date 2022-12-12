@@ -16,14 +16,14 @@ body {
 #as-menu {
     display: flex;
     flex-direction: column;
-    width: 18vw;
-    gap: 1vw;
+    width:50vw;
+    gap: 2vw;
     background-color: #1c1c1c;
-    float: left;
-    padding: 1vh 1vw;
+    padding: 3vh 1vw;
 }
-
-
+#as-games{
+    display: flex;
+}
 .container_filtro {
     display: flex;
     flex-flow: row nowrap;
@@ -55,7 +55,6 @@ footer {
     padding: 0 5vw;
     display: flex;
     flex-direction: row;
-    position: fixed;
     justify-content: space-between;
     align-items: center;
     background-color: #1c1c1c;
@@ -68,8 +67,6 @@ footer {
     height: 10vh;
 }
 
-
-
 #elements-izq {
     display: flex;
     flex-direction: row;
@@ -77,10 +74,6 @@ footer {
     align-items: center;
     color: #45F3FF;
 }
-
-
-
-
 
 #elements-dir {
     display: flex;
@@ -91,7 +84,6 @@ footer {
     color: #45F3FF;
 
 }
-
 
 #img-footer {
     width: 60px;
@@ -108,7 +100,7 @@ footer {
 
 }
 
-#HD p {
+#HD p{
     cursor: pointer;
 }
 
@@ -207,9 +199,7 @@ main {
 }
 
 .game {
-    /*DIV DOS GAMES*/
     background-color: #34353D;
-    /*REMOVER A COR ANTES DA ENTREGA*/
     width: 23vw;
     border-radius: 1rem;
     display: flex;
@@ -288,11 +278,11 @@ main {
     text-align: center;
 }
 
-span {
+span{
     display: none;
 }
 
-#alinhar_text_botao {
+#alinhar_text_botao{
     display: flex;
     flex-flow: row nowrap;
     align-items: center;
