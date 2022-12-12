@@ -54,7 +54,6 @@ footer {
     padding: 0 5vw;
     display: flex;
     flex-direction: row;
-    position: fixed;
     justify-content: space-between;
     align-items: center;
     background-color: #1c1c1c;
