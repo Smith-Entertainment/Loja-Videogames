@@ -1,9 +1,29 @@
 var quantJogos = 10;
 let generos = document.getElementsByClassName("container_filtro");
 let plataforma = document.getElementsByClassName("slc_plataforma");
+let section_favoritos = document.getElementsByClassName("main_games");
+let click_favoritos = document.getElementsByClassName("slc_favoritos");
 
 let slc_gen = "";
 let slc_plat = "all";
+let favoritos = [];
+
+const adiciona_favorito = (jogo) =>{
+
+	favoritos.push(jogo);
+
+}
+console.log(favoritos);
+
+const ver_favorito = () => {
+	for(var i = 0; i < favoritos.length; i++){
+		section_favoritos.innerHTML += `<a href="${favoritos[i].freetogame_profile_url}" id="freetogame_profile_url">
+		<div id="thumbnail"><img src="${favoritos[i].thumbnail}" id="thumbnail" alt=""></div>
+		<h4 id="title">${favoritos[i].title}</h4></a>`
+	}
+	console.log("teste");
+}
+
 
 const selecao_genero = (gen) => {
 	if(quantJogos>10){
@@ -47,15 +67,15 @@ function Mostjogos(jogos) {
 	
 	for (var i = 1; i < quantJogos; i++) {
 		document.getElementById("containerJogo").innerHTML += `
-		<a href="${jogos[i].freetogame_profile_url}" id="freetogame_profile_url"> <div class="game" > <div><img src="${jogos[i].thumbnail}" id="thumbnail" alt=""></div>
+		<a href="${jogos[i].freetogame_profile_url}" id="freetogame_profile_url"> <div class="game" > <div><img src="${jogos[i].thumbnail}" id="thumbnail" alt=""></div></a>
 		<div id="alinhar_text_botao">
 			<h4 id="title">${jogos[i].title}</h4>
-			<button id="btn_favoritar"><span class="material-symbols-outlined">star</span></button>
+			<button id="btn_favoritar" onclick="adiciona_favorito(${jogos[i]})"><span class="material-symbols-outlined">star</span></button>
 		</div>
 		<h4 id="genre"></h4>
 		<h4 id="platform"></h4>
 		</div>
-		</div></a>`;
+		</div>`;
 	}
 }
 
@@ -101,3 +121,5 @@ generos[7].addEventListener('click',() => selecao_genero(generos[7].id));
 plataforma[0].addEventListener('click',() => selecao_plataforma(plataforma[0].id));
 plataforma[1].addEventListener('click',() => selecao_plataforma(plataforma[1].id));
 plataforma[2].addEventListener('click',() => selecao_plataforma(plataforma[2].id));
+
+click_favoritos[0].addEventListener('click',() => ver_favorito());
