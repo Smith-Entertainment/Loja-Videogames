@@ -213,14 +213,14 @@ main {
     padding-left: 0.5vw;
 }
 
-#thumbnail {
+.thumbnail {
     width: 23vw;
     height: 30vh;
     border-radius: 1rem;
 }
 
 /*-----------------AJEITAR BOTAO-------*/
-#btn_favoritar {
+.btn_favoritar {
     width: 2.5vw;
     height: 5vh;
     border: none;

@@ -5,6 +5,9 @@ let plataforma = document.getElementsByClassName("slc_plataforma");
 let slc_gen = "";
 let slc_plat = "all";
 
+let favoritos = [];
+let save_fav = {};
+
 const selecao_genero = (gen) => {
 	if(quantJogos>10){
 		quantJogos = 10;
@@ -47,10 +50,10 @@ function Mostjogos(jogos) {
 	
 	for (var i = 1; i < quantJogos; i++) {
 		document.getElementById("containerJogo").innerHTML += `
-		<a href="${jogos[i].freetogame_profile_url}" id="freetogame_profile_url"> <div class="game" > <div><img src="${jogos[i].thumbnail}" id="thumbnail" alt=""></div>
+		<a href="${jogos[i].freetogame_profile_url}" id="freetogame_profile_url"> <div class="game" > <img src="${jogos[i].thumbnail}" class="thumbnail" alt="">
 		<div id="alinhar_text_botao">
-			<h4 id="title">${jogos[i].title}</h4>
-			<button id="btn_favoritar"><span class="material-symbols-outlined">star</span></button>
+			<h4 class="title">${jogos[i].title}</h4>
+			<button class="btn_favoritar"><span class="material-symbols-outlined">star</span></button>
 		</div>
 		<h4 id="genre"></h4>
 		<h4 id="platform"></h4>
@@ -88,6 +91,12 @@ const verJogos = (category, plataform) => {
 }
 
 verJogos(slc_gen, slc_plat);
+
+// for(var i=0; i<8; i++)
+// {
+// 	console.log(i,generos[i],generos[i].id);
+// 	generos[i].addEventListener('click',() => selecao_genero(generos[].id));
+// }
 
 generos[0].addEventListener('click',() => selecao_genero(generos[0].id));
 generos[1].addEventListener('click',() => selecao_genero(generos[1].id));
