@@ -37,8 +37,9 @@ function somarJogos() {
 	quantJogos += 10;
 	verJogos(slc_gen, slc_plat);
 }
+
 let buttonMostrarMais = document.getElementById("btn_carregar_mais");
-	buttonMostrarMais.addEventListener('click', somarJogos);
+buttonMostrarMais.addEventListener('click', somarJogos);
 
 function Mostjogos(jogos) {
 	document.getElementById("containerBanner").innerHTML = `<a href="${jogos[0].freetogame_profile_url}" id="freetogame_profile_url">
@@ -50,13 +51,11 @@ function Mostjogos(jogos) {
 	
 	for (var i = 1; i < quantJogos; i++) {
 		document.getElementById("containerJogo").innerHTML += `
-		<a href="${jogos[i].freetogame_profile_url}" id="freetogame_profile_url"> <div class="game" > <img src="${jogos[i].thumbnail}" class="thumbnail" alt="">
+		<a href="${jogos[i].freetogame_profile_url}" class="freetogame_profile_url"> <div class="game" > <img src="${jogos[i].thumbnail}" class="thumbnail" alt="">
 		<div id="alinhar_text_botao">
 			<h4 class="title">${jogos[i].title}</h4>
 			<button class="btn_favoritar"><span class="material-symbols-outlined">star</span></button>
 		</div>
-		<h4 id="genre"></h4>
-		<h4 id="platform"></h4>
 		</div>
 		</div></a>`;
 	}
@@ -71,18 +70,16 @@ const verJogos = (category, plataform) => {
 		}
 	};
 
-	var categoria;
-	
 	if(category == "")
 	{
-		categoria = ``;
+		category = ``;
 	}
 	else
 	{
-		categoria = `&category=${category}`;
+		category = `&category=${category}`;
 	}
 	
-	fetch(`https://free-to-play-games-database.p.rapidapi.com/api/games?platform=${plataform}${categoria}&sort-by=popularity`, options)
+	fetch(`https://free-to-play-games-database.p.rapidapi.com/api/games?platform=${plataform}${category}&sort-by=popularity`, options)
 		.then(response => response.json())
 		.then(response => {
 			Mostjogos(response);
@@ -92,21 +89,33 @@ const verJogos = (category, plataform) => {
 
 verJogos(slc_gen, slc_plat);
 
-// for(var i=0; i<8; i++)
+// for(var i=0; i<generos.length; i++)
 // {
-// 	console.log(i,generos[i],generos[i].id);
-// 	generos[i].addEventListener('click',() => selecao_genero(generos[].id));
+// 	generos[i].addEventListener("click",() => selecao_genero(generos[i].id));
 // }
 
-generos[0].addEventListener('click',() => selecao_genero(generos[0].id));
-generos[1].addEventListener('click',() => selecao_genero(generos[1].id));
-generos[2].addEventListener('click',() => selecao_genero(generos[2].id));
-generos[3].addEventListener('click',() => selecao_genero(generos[3].id));
-generos[4].addEventListener('click',() => selecao_genero(generos[4].id));
-generos[5].addEventListener('click',() => selecao_genero(generos[5].id));
-generos[6].addEventListener('click',() => selecao_genero(generos[6].id));
-generos[7].addEventListener('click',() => selecao_genero(generos[7].id));
+generos[0].addEventListener("click",() => selecao_genero(generos[0].id));
+generos[1].addEventListener("click",() => selecao_genero(generos[1].id));
+generos[2].addEventListener("click",() => selecao_genero(generos[2].id));
+generos[3].addEventListener("click",() => selecao_genero(generos[3].id));
+generos[4].addEventListener("click",() => selecao_genero(generos[4].id));
+generos[5].addEventListener("click",() => selecao_genero(generos[5].id));
+generos[6].addEventListener("click",() => selecao_genero(generos[6].id));
+generos[7].addEventListener("click",() => selecao_genero(generos[7].id));
 
-plataforma[0].addEventListener('click',() => selecao_plataforma(plataforma[0].id));
-plataforma[1].addEventListener('click',() => selecao_plataforma(plataforma[1].id));
-plataforma[2].addEventListener('click',() => selecao_plataforma(plataforma[2].id));
+plataforma[0].addEventListener("click",() => selecao_plataforma(plataforma[0].id));
+plataforma[1].addEventListener("click",() => selecao_plataforma(plataforma[1].id));
+plataforma[2].addEventListener("click",() => selecao_plataforma(plataforma[2].id));
+
+// function escuta(){
+//   for(x=0;x<generos.length;x++)
+//   {
+//     (function(index){
+// 		botoes[x].addEventListener("click", function(){
+// 		removeLinha(index);
+//     });
+//     })
+	
+// 	(x);
+//   }
+// }
