@@ -16,14 +16,14 @@ body {
 #as-menu {
     display: flex;
     flex-direction: column;
-    width: 18vw;
-    gap: 1vw;
+    width:50vw;
+    gap: 2vw;
     background-color: #1c1c1c;
-    float: left;
-    padding: 1vh 1vw;
+    padding: 3vh 1vw;
 }
-
-
+#as-games{
+    display: flex;
+}
 .container_filtro {
     display: flex;
     flex-flow: row nowrap;
@@ -55,7 +55,6 @@ footer {
     padding: 0 5vw;
     display: flex;
     flex-direction: row;
-    position: fixed;
     justify-content: space-between;
     align-items: center;
     background-color: #1c1c1c;
@@ -68,8 +67,6 @@ footer {
     height: 10vh;
 }
 
-
-
 #elements-izq {
     display: flex;
     flex-direction: row;
@@ -77,10 +74,6 @@ footer {
     align-items: center;
     color: #45F3FF;
 }
-
-
-
-
 
 #elements-dir {
     display: flex;
@@ -91,7 +84,6 @@ footer {
     color: #45F3FF;
 
 }
-
 
 #img-footer {
     width: 60px;
@@ -107,6 +99,7 @@ footer {
     gap: 7rem;
 
 }
+
 #HD p{
     cursor: pointer;
 }
@@ -154,6 +147,7 @@ main {
     flex-wrap: wrap;
     justify-content: space-around;
     margin-top: 5vh;
+    max-width: 80vw;
 }
 
 .banner {
@@ -206,9 +200,7 @@ main {
 }
 
 .game {
-    /*DIV DOS GAMES*/
     background-color: #34353D;
-    /*REMOVER A COR ANTES DA ENTREGA*/
     width: 23vw;
     border-radius: 1rem;
     display: flex;
@@ -221,14 +213,14 @@ main {
     padding-left: 0.5vw;
 }
 
-#thumbnail {
+.thumbnail {
     width: 23vw;
     height: 30vh;
     border-radius: 1rem;
 }
 
 /*-----------------AJEITAR BOTAO-------*/
-#btn_favoritar {
+.btn_favoritar {
     width: 2.5vw;
     height: 5vh;
     border: none;
@@ -286,13 +278,15 @@ main {
     font-weight: 400;
     text-align: center;
 }
+
 span{
     display: none;
 }
+
 #alinhar_text_botao{
     display: flex;
     flex-flow: row nowrap;
     align-items: center;
     justify-content: space-between;
-    width:23vw;
+    width: 23vw;
 }
