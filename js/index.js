@@ -11,7 +11,7 @@ const TODOS_JOGOS = [];
 
 let slc_gen = "";
 let slc_plat = "all";
-const FAVORITOS = [];
+const FAVORITOS = pegar_db();
 
 console.log(FAVORITOS);
 
@@ -27,6 +27,7 @@ const favo = (idJogo, index_botao) => {
 	// Adiciona um novo elemento no array
 	let jogoFavorito = TODOS_JOGOS[0].find(element => element.id === idJogo);
 	FAVORITOS.push(jogoFavorito);
+	salvar_db(jogoFavorito);
 	btnFavoritar[index_botao].classList.add("adicionado_favorito");	//Adiciona a classe de favoritado
 
 	// todo: Persistir dados em localStorage
@@ -35,7 +36,7 @@ const favo = (idJogo, index_botao) => {
 }
 
 function ver_favorito() {
-	container_Banner.style.display = "none"
+	container_Banner.style.display = "none";
 
 	container_Jogo.innerHTML = '';
 
@@ -64,6 +65,28 @@ const selecao_genero = (gen) => {
 	}
 
 	verJogos(slc_gen, slc_plat);
+}
+
+function salvar_db(jogo_favorito){
+	let favoritos = pegar_db();
+
+	favoritos.push(jogo_favorito);
+
+	localStorage.setItem("favoritos", JSON.stringify(favoritos));
+}
+
+function pegar_db(){
+	let favoritos;
+
+	if(localStorage.getItem("favoritos") === null)
+	{
+		favoritos = [];
+	}else
+	{
+		favoritos = JSON.parse(localStorage.getItem("favoritos"));
+	}
+
+	return favoritos;
 }
 
 const selecao_plataforma = (plat) => {
