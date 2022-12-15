@@ -1,4 +1,6 @@
 var quantJogos = 10;
+let container_Banner = document.getElementById("containerBanner");
+let container_Jogo = document.getElementById("containerJogo");
 let generos = document.getElementsByClassName("container_filtro");
 let plataforma = document.getElementsByClassName("slc_plataforma");
 let section_favoritos = document.getElementsByClassName("main_games");
@@ -32,15 +34,22 @@ const favo = (idJogo, index_botao) => {
 	console.log("inseriu: ", FAVORITOS);
 }
 
+function ver_favorito() {
+	container_Banner.style.display = "none"
 
-const ver_favorito = () => {
+	container_Jogo.innerHTML = '';
+
 	for (var i = 0; i < FAVORITOS.length; i++) {
-		section_favoritos.innerHTML += `<a href="${FAVORITOS[i].freetogame_profile_url}" id="freetogame_profile_url">
-		<div class="thumbnail"><img src="${FAVORITOS[i].thumbnail}" class="thumbnail" alt=""></div>
-		<h4 id="title">${FAVORITOS[i].title}</h4></a>`
+		container_Jogo.innerHTML += `
+		<a href="${FAVORITOS[i].freetogame_profile_url}" id="freetogame_profile_url"> <div class="game" > <div><img src="${FAVORITOS[i].thumbnail}" class="thumbnail" alt=""></div></a>
+		<div id="alinhar_text_botao">
+			<h4 id="title">${FAVORITOS[i].title}</h4>
+			<button class="btn_favoritar " onclick="favo(${FAVORITOS[i].id}, ${i - 1})" ><span class="material-symbols-outlined">star</span></button>
+		</div>
+		
+		</div>`;
 	}
 }
-
 
 const selecao_genero = (gen) => {
 	if (quantJogos > 10) {
@@ -74,19 +83,22 @@ let buttonMostrarMais = document.getElementById("btn_carregar_mais");
 buttonMostrarMais.addEventListener('click', somarJogos);
 
 function Mostjogos(jogos) {
-	document.getElementById("containerBanner").innerHTML = `<a href="${jogos[0].freetogame_profile_url}" id="freetogame_profile_url">
+
+	container_Banner.style.display = "block"
+
+	container_Banner.innerHTML = `<a href="${jogos[0].freetogame_profile_url}" id="freetogame_profile_url">
 
 	<div id="img_banner"><img src="${jogos[0].thumbnail}" class="thumbnail" alt=""></div>
 	<h4 id="title">${jogos[0].title}</h4></a>`
 
-	document.getElementById("containerJogo").innerHTML = '';
+	container_Jogo.innerHTML = '';
 
 	for (var i = 1; i < quantJogos; i++) {
-		document.getElementById("containerJogo").innerHTML += `
+		container_Jogo.innerHTML += `
 		<a href="${jogos[i].freetogame_profile_url}" id="freetogame_profile_url"> <div class="game" > <div><img src="${jogos[i].thumbnail}" class="thumbnail" alt=""></div></a>
 		<div id="alinhar_text_botao">
 			<h4 id="title">${jogos[i].title}</h4>
-			<button class="btn_favoritar " onclick="favo(${jogos[i].id}, ${i-1})" ><span class="material-symbols-outlined">star</span></button>
+			<button class="btn_favoritar " onclick="favo(${jogos[i].id}, ${i - 1})" ><span class="material-symbols-outlined">star</span></button>
 		</div>
 		
 		</div>`;
@@ -134,6 +146,6 @@ plataforma[0].addEventListener("click", () => selecao_plataforma(plataforma[0].i
 plataforma[1].addEventListener("click", () => selecao_plataforma(plataforma[1].id));
 plataforma[2].addEventListener("click", () => selecao_plataforma(plataforma[2].id));
 
-click_favoritos.addEventListener('click', () => ver_favorito());
+click_favoritos.addEventListener('click', ver_favorito);
 
 
