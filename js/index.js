@@ -2,40 +2,56 @@ var quantJogos = 10;
 let generos = document.getElementsByClassName("container_filtro");
 let plataforma = document.getElementsByClassName("slc_plataforma");
 let section_favoritos = document.getElementsByClassName("main_games");
-let click_favoritos = document.getElementsByClassName("slc_favoritos");
+let click_favoritos = document.getElementById("fav");
+let btnFavoritar = document.getElementsByClassName("material-symbols-outlined");
+const TODOS_JOGOS = [];
+
 
 let slc_gen = "";
 let slc_plat = "all";
-let favoritos = [];
+const FAVORITOS = [];
 
-const adiciona_favorito = (jogo) =>{
 
-	favoritos.push(jogo);
+console.log(FAVORITOS)
 
+
+const favo = (idJogo) => {
+	// Verifica se o elemento já está no array
+	if (!!FAVORITOS.find(element => element.id === idJogo)) {
+		FAVORITOS.splice(FAVORITOS.indexOf(element => element.id === idJogo), 1); // Remove caso já exista
+		console.log("Removeu: ", FAVORITOS);
+		return;
+	}
+
+	// Adiciona um novo elemento no array
+	let jogoFavorito = TODOS_JOGOS[0].find(element => element.id === idJogo);
+	FAVORITOS.push(jogoFavorito);
+	// Todo: Manipudar classe com taggleClass, addClass e RemoveClass
+
+	// todo: Persistir dados em localStorage
+
+	console.log("inseriu: ", FAVORITOS);
 }
-console.log(favoritos);
+
 
 const ver_favorito = () => {
-	for(var i = 0; i < favoritos.length; i++){
-		section_favoritos.innerHTML += `<a href="${favoritos[i].freetogame_profile_url}" id="freetogame_profile_url">
-		<div id="thumbnail"><img src="${favoritos[i].thumbnail}" id="thumbnail" alt=""></div>
-		<h4 id="title">${favoritos[i].title}</h4></a>`
+	for (var i = 0; i < FAVORITOS.length; i++) {
+		section_favoritos.innerHTML += `<a href="${FAVORITOS[i].freetogame_profile_url}" id="freetogame_profile_url">
+		<div id="thumbnail"><img src="${FAVORITOS[i].thumbnail}" id="thumbnail" alt=""></div>
+		<h4 id="title">${FAVORITOS[i].title}</h4></a>`
 	}
-	console.log("teste");
 }
 
 
 const selecao_genero = (gen) => {
-	if(quantJogos>10){
+	if (quantJogos > 10) {
 		quantJogos = 10;
 	}
 
-	if(gen == "home")
-	{
+	if (gen == "home") {
 		slc_gen = "";
 	}
-	else
-	{
+	else {
 		slc_gen = gen;
 	}
 
@@ -43,7 +59,7 @@ const selecao_genero = (gen) => {
 }
 
 const selecao_plataforma = (plat) => {
-	if(quantJogos>10){
+	if (quantJogos > 10) {
 		quantJogos = 10;
 	}
 	slc_plat = plat;
@@ -65,13 +81,13 @@ function Mostjogos(jogos) {
 	<h4 id="title">${jogos[0].title}</h4></a>`
 
 	document.getElementById("containerJogo").innerHTML = '';
-	
+
 	for (var i = 1; i < quantJogos; i++) {
 		document.getElementById("containerJogo").innerHTML += `
 		<a href="${jogos[i].freetogame_profile_url}" id="freetogame_profile_url"> <div class="game" > <div><img src="${jogos[i].thumbnail}" id="thumbnail" alt=""></div></a>
 		<div id="alinhar_text_botao">
 			<h4 id="title">${jogos[i].title}</h4>
-			<button id="btn_favoritar" onclick="adiciona_favorito(${jogos[i]})"><span class="material-symbols-outlined">star</span></button>
+			<button id="btn_favoritar" onclick="favo(${jogos[i].id})" ><span class="material-symbols-outlined">star</span></button>
 		</div>
 		</div>
 		</div>`;
@@ -87,19 +103,18 @@ const verJogos = (category, plataform) => {
 		}
 	};
 
-	if(category == "")
-	{
+	if (category == "") {
 		category = ``;
 	}
-	else
-	{
+	else {
 		category = `&category=${category}`;
 	}
-	
+
 	fetch(`https://free-to-play-games-database.p.rapidapi.com/api/games?platform=${plataform}${category}&sort-by=popularity`, options)
 		.then(response => response.json())
 		.then(response => {
-			Mostjogos(response);
+			TODOS_JOGOS.push(response);
+			Mostjogos(TODOS_JOGOS[0]);
 		})
 		.catch(err => console.error(err));
 }
@@ -111,21 +126,22 @@ verJogos(slc_gen, slc_plat);
 // 	generos[i].addEventListener("click",() => selecao_genero(generos[i].id));
 // }
 
-generos[0].addEventListener("click",() => selecao_genero(generos[0].id));
-generos[1].addEventListener("click",() => selecao_genero(generos[1].id));
-generos[2].addEventListener("click",() => selecao_genero(generos[2].id));
-generos[3].addEventListener("click",() => selecao_genero(generos[3].id));
-generos[4].addEventListener("click",() => selecao_genero(generos[4].id));
-generos[5].addEventListener("click",() => selecao_genero(generos[5].id));
-generos[6].addEventListener("click",() => selecao_genero(generos[6].id));
-generos[7].addEventListener("click",() => selecao_genero(generos[7].id));
+generos[0].addEventListener("click", () => selecao_genero(generos[0].id));
+generos[1].addEventListener("click", () => selecao_genero(generos[1].id));
+generos[2].addEventListener("click", () => selecao_genero(generos[2].id));
+generos[3].addEventListener("click", () => selecao_genero(generos[3].id));
+generos[4].addEventListener("click", () => selecao_genero(generos[4].id));
+generos[5].addEventListener("click", () => selecao_genero(generos[5].id));
+generos[6].addEventListener("click", () => selecao_genero(generos[6].id));
+generos[7].addEventListener("click", () => selecao_genero(generos[7].id));
 
-plataforma[0].addEventListener("click",() => selecao_plataforma(plataforma[0].id));
-plataforma[1].addEventListener("click",() => selecao_plataforma(plataforma[1].id));
-plataforma[2].addEventListener("click",() => selecao_plataforma(plataforma[2].id));
+plataforma[0].addEventListener("click", () => selecao_plataforma(plataforma[0].id));
+plataforma[1].addEventListener("click", () => selecao_plataforma(plataforma[1].id));
+plataforma[2].addEventListener("click", () => selecao_plataforma(plataforma[2].id));
 
-plataforma[0].addEventListener('click',() => selecao_plataforma(plataforma[0].id));
-plataforma[1].addEventListener('click',() => selecao_plataforma(plataforma[1].id));
-plataforma[2].addEventListener('click',() => selecao_plataforma(plataforma[2].id));
+plataforma[0].addEventListener('click', () => selecao_plataforma(plataforma[0].id));
+plataforma[1].addEventListener('click', () => selecao_plataforma(plataforma[1].id));
+plataforma[2].addEventListener('click', () => selecao_plataforma(plataforma[2].id));
 
-click_favoritos[0].addEventListener('click',() => ver_favorito());
+click_favoritos.addEventListener('click', () => ver_favorito());
+
