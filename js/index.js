@@ -6,6 +6,7 @@ let plataforma = document.getElementsByClassName("slc_plataforma");
 let section_favoritos = document.getElementsByClassName("main_games");
 let click_favoritos = document.getElementById("fav");
 let btnFavoritar = document.getElementsByClassName("material-symbols-outlined");
+let buttonMostrarMais = document.getElementById("btn_carregar_mais");
 const TODOS_JOGOS = [];
 
 
@@ -38,6 +39,7 @@ const favo = (idJogo, index_botao) => {
 
 function ver_favorito() {
 	container_Banner.style.display = "none";
+	buttonMostrarMais.style.display = "none";
 
 	container_Jogo.innerHTML = '';
 
@@ -107,12 +109,9 @@ function somarJogos() {
 	verJogos(slc_gen, slc_plat);
 }
 
-let buttonMostrarMais = document.getElementById("btn_carregar_mais");
-buttonMostrarMais.addEventListener('click', somarJogos);
-
 function Mostjogos(jogos) {
-
-	container_Banner.style.display = "block"
+	container_Banner.style.display = "block";
+	buttonMostrarMais.style.display = "block";
 
 	container_Banner.innerHTML = `<a href="${jogos[0].freetogame_profile_url}" id="freetogame_profile_url">
 
@@ -181,5 +180,6 @@ plataforma[1].addEventListener("click", () => selecao_plataforma(plataforma[1].i
 plataforma[2].addEventListener("click", () => selecao_plataforma(plataforma[2].id));
 
 click_favoritos.addEventListener('click', ver_favorito);
+buttonMostrarMais.addEventListener('click', somarJogos);
 
 
