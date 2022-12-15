@@ -16,7 +16,8 @@ body {
 #as-menu {
     display: flex;
     flex-direction: column;
-    width: 50vw;
+    width: 20vw;
+    min-width: 20vw;
     gap: 2vw;
     background-color: #1c1c1c;
     padding: 3vh 1vw;
