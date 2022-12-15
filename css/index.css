@@ -16,7 +16,7 @@ body {
 #as-menu {
     display: flex;
     flex-direction: column;
-    width: 50vw;
+    width: 40vw;
     gap: 2vw;
     background-color: #1c1c1c;
     padding: 3vh 1vw;
@@ -30,7 +30,7 @@ body {
     display: flex;
     flex-flow: row nowrap;
     justify-content: flex-start;
-    padding-left: 20%;
+    padding-left: 10%;
     align-items: center;
     height: 7vh;
     gap: 1vw;
@@ -146,18 +146,19 @@ header {
 main {
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
     justify-content: space-around;
     margin-top: 5vh;
-    max-width: 80vw;
+
 }
 
 .banner {
-    /*REMOVER A COR ANTES DA ENTREGA*/
-    width: 74vw;
+ 
+    width: 78vw;
     height: 45vh;
     border-radius: 1rem;
+    display: flex;
     align-self: center;
+
 
 }
 
@@ -167,12 +168,11 @@ main {
     font-size: 1.5rem;
     position: relative;
     top: 38vh;
-    /*---------------AJUSTAR ISSO------*/
 
 }
 
 #img_banner img {
-    width: 74vw;
+    width: 78vw;
     height: 45vh;
     border-radius: 1rem;
     position: absolute;
@@ -181,7 +181,7 @@ main {
 
 #subtitulo {
 
-    width: 74vw;
+    width: 78vw;
     height: 10vh;
     display: flex;
     align-items: flex-end;
@@ -189,7 +189,7 @@ main {
     color: #45F3FF;
     font-weight: 700;
     font-size: 1.8rem;
-
+    
 }
 
 .main_games {
@@ -198,9 +198,8 @@ main {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 1rem;
-
-
+    gap: 2.5vw 1.5vw;
+    
 }
 
 .game {

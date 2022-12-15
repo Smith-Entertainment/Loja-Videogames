@@ -87,7 +87,7 @@ function Mostjogos(jogos) {
 			<h4 id="title">${jogos[i].title}</h4>
 			<button class="btn_favoritar" onclick="favo(${jogos[i].id})" ><span class="material-symbols-outlined">star</span></button>
 		</div>
-		</div>
+		
 		</div>`;
 	}
 }
@@ -134,4 +134,5 @@ plataforma[1].addEventListener("click", () => selecao_plataforma(plataforma[1].i
 plataforma[2].addEventListener("click", () => selecao_plataforma(plataforma[2].id));
 
 click_favoritos.addEventListener('click', () => ver_favorito());
+
 
