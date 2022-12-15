@@ -15,7 +15,7 @@ body {
 
 #as-menu {
     display: flex;
-    flex-direction: column;
+    flex-direction: column; 
     width: 20vw;
     min-width: 20vw;
     gap: 2vw;

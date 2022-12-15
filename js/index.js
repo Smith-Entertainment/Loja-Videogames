@@ -51,7 +51,7 @@ function ver_favorito() {
 			<button class="btn_favoritar " onclick="favo(${FAVORITOS[i].id}, ${i - 1})" ><span class="material-symbols-outlined adicionado_favorito">star</span></button>
 		</div>
 		
-		</div>`;
+		</div>`; 
 	}
 }
 
