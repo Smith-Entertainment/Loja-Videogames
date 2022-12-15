@@ -16,21 +16,19 @@ body {
 #as-menu {
     display: flex;
     flex-direction: column;
-    width: 40vw;
+    width:50vw;
     gap: 2vw;
     background-color: #1c1c1c;
     padding: 3vh 1vw;
 }
-
-#as-games {
+#as-games{
     display: flex;
 }
-
 .container_filtro {
     display: flex;
     flex-flow: row nowrap;
     justify-content: flex-start;
-    padding-left: 10%;
+    padding-left: 20%;
     align-items: center;
     height: 7vh;
     gap: 1vw;
@@ -102,7 +100,7 @@ footer {
 
 }
 
-#HD p {
+#HD p{
     cursor: pointer;
 }
 
@@ -146,19 +144,18 @@ header {
 main {
     display: flex;
     flex-direction: column;
+    flex-wrap: wrap;
     justify-content: space-around;
     margin-top: 5vh;
-
+    max-width: 80vw;
 }
 
 .banner {
- 
-    width: 78vw;
+    /*REMOVER A COR ANTES DA ENTREGA*/
+    width: 74vw;
     height: 45vh;
     border-radius: 1rem;
-    display: flex;
     align-self: center;
-
 
 }
 
@@ -168,11 +165,12 @@ main {
     font-size: 1.5rem;
     position: relative;
     top: 38vh;
+    /*---------------AJUSTAR ISSO------*/
 
 }
 
 #img_banner img {
-    width: 78vw;
+    width: 74vw;
     height: 45vh;
     border-radius: 1rem;
     position: absolute;
@@ -181,7 +179,7 @@ main {
 
 #subtitulo {
 
-    width: 78vw;
+    width: 74vw;
     height: 10vh;
     display: flex;
     align-items: flex-end;
@@ -189,9 +187,8 @@ main {
     color: #45F3FF;
     font-weight: 700;
     font-size: 1.8rem;
-    
-}
 
+}
 .main_games {
     padding-top: 5vh;
     display: flex;
@@ -251,6 +248,7 @@ main {
         'opsz' 48
 }
 
+/*-----------------AJEITAR BOTAO------*/
 #div_btn {
     /*CARREGAR MAIS*/
     width: 74vw;
@@ -290,11 +288,11 @@ main {
     text-align: center;
 }
 
-span {
+span{
     display: none;
 }
 
-#alinhar_text_botao {
+#alinhar_text_botao{
     display: flex;
     flex-flow: row nowrap;
     align-items: center;
