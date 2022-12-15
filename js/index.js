@@ -16,16 +16,17 @@ const FAVORITOS = pegar_db();
 console.log(FAVORITOS);
 
 const favo = (idJogo, index_botao) => {
+	let jogoFavorito = TODOS_JOGOS[0].find(element => element.id === idJogo);
 	// Verifica se o elemento já está no array
 	if (!!FAVORITOS.find(element => element.id === idJogo)) {
 		FAVORITOS.splice(FAVORITOS.indexOf(element => element.id === idJogo), 1); // Remove caso já exista
+		remove_db();
 		btnFavoritar[index_botao].classList.remove("adicionado_favorito");	//Remove a classe de favoritado
 		console.log("Removeu: ", FAVORITOS);
 		return;
 	}
 
 	// Adiciona um novo elemento no array
-	let jogoFavorito = TODOS_JOGOS[0].find(element => element.id === idJogo);
 	FAVORITOS.push(jogoFavorito);
 	salvar_db(jogoFavorito);
 	btnFavoritar[index_botao].classList.add("adicionado_favorito");	//Adiciona a classe de favoritado
@@ -73,6 +74,10 @@ function salvar_db(jogo_favorito){
 	favoritos.push(jogo_favorito);
 
 	localStorage.setItem("favoritos", JSON.stringify(favoritos));
+}
+
+function remove_db(){
+	localStorage.setItem("favoritos", JSON.stringify(FAVORITOS));
 }
 
 function pegar_db(){
