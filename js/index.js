@@ -46,7 +46,7 @@ function ver_favorito() {
 		<a href="${FAVORITOS[i].freetogame_profile_url}" id="freetogame_profile_url"> <div class="game" > <div><img src="${FAVORITOS[i].thumbnail}" class="thumbnail" alt=""></div></a>
 		<div id="alinhar_text_botao">
 			<h4 id="title">${FAVORITOS[i].title}</h4>
-			<button class="btn_favoritar " onclick="favo(${FAVORITOS[i].id}, ${i - 1})" ><span class="material-symbols-outlined">star</span></button>
+			<button class="btn_favoritar " onclick="favo(${FAVORITOS[i].id}, ${i - 1})" ><span class="material-symbols-outlined adicionado_favorito">star</span></button>
 		</div>
 		
 		</div>`;
@@ -122,11 +122,17 @@ function Mostjogos(jogos) {
 	container_Jogo.innerHTML = '';
 
 	for (var i = 1; i < quantJogos; i++) {
+		let classe_favorito = "";
+
+		if (!!FAVORITOS.find(element => element.id === jogos[i].id)) {
+			classe_favorito = "adicionado_favorito";
+		}
+
 		container_Jogo.innerHTML += `
 		<a href="${jogos[i].freetogame_profile_url}" id="freetogame_profile_url"> <div class="game" > <div><img src="${jogos[i].thumbnail}" class="thumbnail" alt=""></div></a>
 		<div id="alinhar_text_botao">
 			<h4 id="title">${jogos[i].title}</h4>
-			<button class="btn_favoritar " onclick="favo(${jogos[i].id}, ${i - 1})" ><span class="material-symbols-outlined">star</span></button>
+			<button class="btn_favoritar " onclick="favo(${jogos[i].id}, ${i - 1})" ><span class="material-symbols-outlined ${classe_favorito}">star</span></button>
 		</div>
 		
 		</div>`;
