@@ -37,7 +37,7 @@ const favo = (idJogo, index_botao) => {
 const ver_favorito = () => {
 	for (var i = 0; i < FAVORITOS.length; i++) {
 		section_favoritos.innerHTML += `<a href="${FAVORITOS[i].freetogame_profile_url}" id="freetogame_profile_url">
-		<div id="thumbnail"><img src="${FAVORITOS[i].thumbnail}" id="thumbnail" alt=""></div>
+		<div class="thumbnail"><img src="${FAVORITOS[i].thumbnail}" class="thumbnail" alt=""></div>
 		<h4 id="title">${FAVORITOS[i].title}</h4></a>`
 	}
 }
@@ -77,19 +77,19 @@ buttonMostrarMais.addEventListener('click', somarJogos);
 function Mostjogos(jogos) {
 	document.getElementById("containerBanner").innerHTML = `<a href="${jogos[0].freetogame_profile_url}" id="freetogame_profile_url">
 
-	<div id="img_banner"><img src="${jogos[0].thumbnail}" id="thumbnail" alt=""></div>
+	<div id="img_banner"><img src="${jogos[0].thumbnail}" class="thumbnail" alt=""></div>
 	<h4 id="title">${jogos[0].title}</h4></a>`
 
 	document.getElementById("containerJogo").innerHTML = '';
 
 	for (var i = 1; i < quantJogos; i++) {
 		document.getElementById("containerJogo").innerHTML += `
-		<a href="${jogos[i].freetogame_profile_url}" id="freetogame_profile_url"> <div class="game" > <div><img src="${jogos[i].thumbnail}" id="thumbnail" alt=""></div></a>
+		<a href="${jogos[i].freetogame_profile_url}" id="freetogame_profile_url"> <div class="game" > <div><img src="${jogos[i].thumbnail}" class="thumbnail" alt=""></div></a>
 		<div id="alinhar_text_botao">
 			<h4 id="title">${jogos[i].title}</h4>
 			<button class="btn_favoritar " onclick="favo(${jogos[i].id}, ${i-1})" ><span class="material-symbols-outlined">star</span></button>
 		</div>
-		</div>
+		
 		</div>`;
 	}
 }
@@ -136,4 +136,5 @@ plataforma[1].addEventListener("click", () => selecao_plataforma(plataforma[1].i
 plataforma[2].addEventListener("click", () => selecao_plataforma(plataforma[2].id));
 
 click_favoritos.addEventListener('click', () => ver_favorito());
+
 
