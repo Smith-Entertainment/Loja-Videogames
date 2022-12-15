@@ -19,7 +19,7 @@ const favo = (idJogo, index_botao) => {
 	let jogoFavorito = TODOS_JOGOS[0].find(element => element.id === idJogo);
 	// Verifica se o elemento já está no array
 	if (!!FAVORITOS.find(element => element.id === idJogo)) {
-		FAVORITOS.splice(FAVORITOS.indexOf(element => element.id === idJogo), 1); // Remove caso já exista
+		FAVORITOS.splice(FAVORITOS.indexOf(FAVORITOS.find(element => element.id === idJogo)), 1); // Remove caso já exista
 		remove_db();
 		btnFavoritar[index_botao].classList.remove("adicionado_favorito");	//Remove a classe de favoritado
 		console.log("Removeu: ", FAVORITOS);
