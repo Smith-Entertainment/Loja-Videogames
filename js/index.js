@@ -1,46 +1,144 @@
 var quantJogos = 10;
+let container_Banner = document.getElementById("containerBanner");
+let container_Jogo = document.getElementById("containerJogo");
 let generos = document.getElementsByClassName("container_filtro");
 let plataforma = document.getElementsByClassName("slc_plataforma");
+let section_favoritos = document.getElementsByClassName("main_games");
+let click_favoritos = document.getElementById("fav");
+let btnFavoritar = document.getElementsByClassName("material-symbols-outlined");
+let buttonMostrarMais = document.getElementById("btn_carregar_mais");
+const TODOS_JOGOS = [];
 
-let slc_gen;
-let slc_plat;
+
+let slc_gen = "";
+let slc_plat = "all";
+const FAVORITOS = pegar_db();
+
+console.log(FAVORITOS);
+
+const favo = (idJogo, index_botao) => {
+	let jogoFavorito = TODOS_JOGOS[0].find(element => element.id === idJogo);
+	// Verifica se o elemento já está no array
+	if (!!FAVORITOS.find(element => element.id === idJogo)) {
+		FAVORITOS.splice(FAVORITOS.indexOf(FAVORITOS.find(element => element.id === idJogo)), 1); // Remove caso já exista
+		remove_db();
+		btnFavoritar[index_botao].classList.remove("adicionado_favorito");	//Remove a classe de favoritado
+		console.log("Removeu: ", FAVORITOS);
+		return;
+	}
+
+	// Adiciona um novo elemento no array
+	FAVORITOS.push(jogoFavorito);
+	salvar_db(jogoFavorito);
+	btnFavoritar[index_botao].classList.add("adicionado_favorito");	//Adiciona a classe de favoritado
+
+	// todo: Persistir dados em localStorage
+
+	console.log("inseriu: ", FAVORITOS);
+}
+
+function ver_favorito() {
+	container_Banner.style.display = "none";
+	buttonMostrarMais.style.display = "none";
+
+	container_Jogo.innerHTML = '';
+
+	for (var i = 0; i < FAVORITOS.length; i++) {
+		container_Jogo.innerHTML += `
+		<a href="${FAVORITOS[i].freetogame_profile_url}" id="freetogame_profile_url"> <div class="game" > <div><img src="${FAVORITOS[i].thumbnail}" class="thumbnail" alt=""></div></a>
+		<div id="alinhar_text_botao">
+			<h4 id="title">${FAVORITOS[i].title}</h4>
+			<button class="btn_favoritar " onclick="favo(${FAVORITOS[i].id}, ${i - 1})" ><span class="material-symbols-outlined adicionado_favorito">star</span></button>
+		</div>
+		
+		</div>`;
+	}
+}
 
 const selecao_genero = (gen) => {
-	slc_gen = gen;
-	verJogos(slc_gen);
+	if (quantJogos > 10) {
+		quantJogos = 10;
+	}
+
+	if (gen == "home") {
+		slc_gen = "";
+	}
+	else {
+		slc_gen = gen;
+	}
+
+	verJogos(slc_gen, slc_plat);
 }
+
+function salvar_db(jogo_favorito){
+	let favoritos = pegar_db();
+
+	favoritos.push(jogo_favorito);
+
+	localStorage.setItem("favoritos", JSON.stringify(favoritos));
+}
+
+function remove_db(){
+	localStorage.setItem("favoritos", JSON.stringify(FAVORITOS));
+}
+
+function pegar_db(){
+	let favoritos;
+
+	if(localStorage.getItem("favoritos") === null)
+	{
+		favoritos = [];
+	}else
+	{
+		favoritos = JSON.parse(localStorage.getItem("favoritos"));
+	}
+
+	return favoritos;
+}
+
 const selecao_plataforma = (plat) => {
+	if (quantJogos > 10) {
+		quantJogos = 10;
+	}
 	slc_plat = plat;
+	verJogos(slc_gen, slc_plat);
 }
 
 function somarJogos() {
 	quantJogos += 10;
+	verJogos(slc_gen, slc_plat);
 }
 
 function Mostjogos(jogos) {
-	document.getElementById("containerBanner").innerHTML = `<a href="${jogos[0].freetogame_profile_url}" id="freetogame_profile_url">
+	container_Banner.style.display = "block";
+	buttonMostrarMais.style.display = "block";
 
-	<div id="img_banner"><img src="${jogos[0].thumbnail}" id="thumbnail" alt=""></div>
+	container_Banner.innerHTML = `<a href="${jogos[0].freetogame_profile_url}" id="freetogame_profile_url">
+
+	<div id="img_banner"><img src="${jogos[0].thumbnail}" class="thumbnail" alt=""></div>
 	<h4 id="title">${jogos[0].title}</h4></a>`
 
-	document.getElementById("containerJogo").innerHTML = '';
-	let buttonMostrarMais = document.getElementById("div_btn");
-	buttonMostrarMais.addEventListener('click', somarJogos);
+	container_Jogo.innerHTML = '';
+
 	for (var i = 1; i < quantJogos; i++) {
-		document.getElementById("containerJogo").innerHTML += `
-		<a href="${jogos[i].freetogame_profile_url}" id="freetogame_profile_url"> <div class="game" > <div><img src="${jogos[i].thumbnail}" id="thumbnail" alt=""></div>
+		let classe_favorito = "";
+
+		if (!!FAVORITOS.find(element => element.id === jogos[i].id)) {
+			classe_favorito = "adicionado_favorito";
+		}
+
+		container_Jogo.innerHTML += `
+		<a href="${jogos[i].freetogame_profile_url}" id="freetogame_profile_url"> <div class="game" > <div><img src="${jogos[i].thumbnail}" class="thumbnail" alt=""></div></a>
 		<div id="alinhar_text_botao">
 			<h4 id="title">${jogos[i].title}</h4>
-			<button id="btn_favoritar"><span class="material-symbols-outlined">star</span></button>
+			<button class="btn_favoritar " onclick="favo(${jogos[i].id}, ${i - 1})" ><span class="material-symbols-outlined ${classe_favorito}">star</span></button>
 		</div>
-		<h4 id="genre"></h4>
-		<h4 id="platform"></h4>
-		</div>
-		</div></a>`;
+		
+		</div>`;
 	}
 }
 
-const verJogos = (category) => {
+const verJogos = (category, plataform) => {
 	const options = {
 		method: 'GET',
 		headers: {
@@ -49,48 +147,40 @@ const verJogos = (category) => {
 		}
 	};
 
-	console.log(category)
+	if (category == "") {
+		category = ``;
+	}
+	else {
+		category = `&category=${category}`;
+	}
 
-	fetch(`https://free-to-play-games-database.p.rapidapi.com/api/games?category=${category}`, options)
+	fetch(`https://free-to-play-games-database.p.rapidapi.com/api/games?platform=${plataform}${category}&sort-by=popularity`, options)
 		.then(response => response.json())
 		.then(response => {
-
+			TODOS_JOGOS.push(response);
+			Mostjogos(TODOS_JOGOS[0]);
 			Mostjogos(response);
 		})
 		.catch(err => console.error(err));
 
-		
 }
 
-const jogosPopulares = () =>{
-	const options = {
-		method: 'GET',
-		headers: {
-			'X-RapidAPI-Key': '0c67e168ddmshf8b4ef8bed5ff13p141ca2jsn943ceb9c73c3',
-			'X-RapidAPI-Host': 'free-to-play-games-database.p.rapidapi.com'
-		}
-	};
+verJogos(slc_gen, slc_plat);
 
-	fetch('https://free-to-play-games-database.p.rapidapi.com/api/games?sort-by=popularity', options)
-		.then(response => response.json())
-		.then(response => {
+generos[0].addEventListener("click", () => selecao_genero(generos[0].id));
+generos[1].addEventListener("click", () => selecao_genero(generos[1].id));
+generos[2].addEventListener("click", () => selecao_genero(generos[2].id));
+generos[3].addEventListener("click", () => selecao_genero(generos[3].id));
+generos[4].addEventListener("click", () => selecao_genero(generos[4].id));
+generos[5].addEventListener("click", () => selecao_genero(generos[5].id));
+generos[6].addEventListener("click", () => selecao_genero(generos[6].id));
+generos[7].addEventListener("click", () => selecao_genero(generos[7].id));
 
-			Mostjogos(response)
-		})
-		.catch(err => console.error(err));
-}
+plataforma[0].addEventListener("click", () => selecao_plataforma(plataforma[0].id));
+plataforma[1].addEventListener("click", () => selecao_plataforma(plataforma[1].id));
+plataforma[2].addEventListener("click", () => selecao_plataforma(plataforma[2].id));
 
-jogosPopulares();
+click_favoritos.addEventListener('click', ver_favorito);
+buttonMostrarMais.addEventListener('click', somarJogos);
 
-generos[0].addEventListener('click',() => jogosPopulares());
-generos[1].addEventListener('click',() => selecao_genero(generos[1].id));
-generos[2].addEventListener('click',() => selecao_genero(generos[2].id));
-generos[3].addEventListener('click',() => selecao_genero(generos[3].id));
-generos[4].addEventListener('click',() => selecao_genero(generos[4].id));
-generos[5].addEventListener('click',() => selecao_genero(generos[5].id));
-generos[6].addEventListener('click',() => selecao_genero(generos[6].id));
-generos[7].addEventListener('click',() => selecao_genero(generos[7].id));
 
-generos[0].addEventListener('click',() => selecao_plataforma(plataforma[0].id));
-generos[1].addEventListener('click',() => selecao_plataforma(plataforma[1].id));
-generos[2].addEventListener('click',() => selecao_plataforma(plataforma[2].id));
