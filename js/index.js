@@ -17,7 +17,7 @@ const favo = (idJogo, index_botao) => {
 	// Verifica se o elemento já está no array
 	if (!!FAVORITOS.find(element => element.id === idJogo)) {
 		FAVORITOS.splice(FAVORITOS.indexOf(element => element.id === idJogo), 1); // Remove caso já exista
-		btnFavoritar[index_botao].classList.remove("adicionado_favorito");
+		btnFavoritar[index_botao].classList.remove("adicionado_favorito");	//Remove a classe de favoritado
 		console.log("Removeu: ", FAVORITOS);
 		return;
 	}
@@ -25,8 +25,7 @@ const favo = (idJogo, index_botao) => {
 	// Adiciona um novo elemento no array
 	let jogoFavorito = TODOS_JOGOS[0].find(element => element.id === idJogo);
 	FAVORITOS.push(jogoFavorito);
-	btnFavoritar[index_botao].classList.add("adicionado_favorito");
-	// Todo: Manipudar classe com taggleClass, addClass e RemoveClass
+	btnFavoritar[index_botao].classList.add("adicionado_favorito");	//Adiciona a classe de favoritado
 
 	// todo: Persistir dados em localStorage
 
