@@ -16,14 +16,16 @@ body {
 #as-menu {
     display: flex;
     flex-direction: column;
-    width:50vw;
+    width: 50vw;
     gap: 2vw;
     background-color: #1c1c1c;
     padding: 3vh 1vw;
 }
-#as-games{
+
+#as-games {
     display: flex;
 }
+
 .container_filtro {
     display: flex;
     flex-flow: row nowrap;
@@ -100,7 +102,7 @@ footer {
 
 }
 
-#HD p{
+#HD p {
     cursor: pointer;
 }
 
@@ -196,8 +198,8 @@ main {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-    
-    
+
+
 }
 
 .game {
@@ -214,14 +216,14 @@ main {
     padding-left: 0.5vw;
 }
 
-#thumbnail {
+.thumbnail {
     width: 23vw;
     height: 30vh;
     border-radius: 1rem;
 }
 
 /*-----------------AJEITAR BOTAO-------*/
-#btn_favoritar {
+.btn_favoritar {
     width: 2.5vw;
     height: 5vh;
     border: none;
@@ -240,7 +242,15 @@ main {
         'opsz' 48
 }
 
-/*-----------------AJEITAR BOTAO------*/
+.adicionado_favorito {
+    /*Estrela do favoritos preenchida*/
+    font-variation-settings:
+        'FILL' 1,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 48
+}
+
 #div_btn {
     /*CARREGAR MAIS*/
     width: 74vw;
@@ -280,11 +290,11 @@ main {
     text-align: center;
 }
 
-span{
+span {
     display: none;
 }
 
-#alinhar_text_botao{
+#alinhar_text_botao {
     display: flex;
     flex-flow: row nowrap;
     align-items: center;
