@@ -13,10 +13,11 @@ const FAVORITOS = [];
 
 console.log(FAVORITOS);
 
-const favo = (idJogo) => {
+const favo = (idJogo, index_botao) => {
 	// Verifica se o elemento já está no array
 	if (!!FAVORITOS.find(element => element.id === idJogo)) {
 		FAVORITOS.splice(FAVORITOS.indexOf(element => element.id === idJogo), 1); // Remove caso já exista
+		btnFavoritar[index_botao].classList.remove("adicionado_favorito");
 		console.log("Removeu: ", FAVORITOS);
 		return;
 	}
@@ -24,6 +25,7 @@ const favo = (idJogo) => {
 	// Adiciona um novo elemento no array
 	let jogoFavorito = TODOS_JOGOS[0].find(element => element.id === idJogo);
 	FAVORITOS.push(jogoFavorito);
+	btnFavoritar[index_botao].classList.add("adicionado_favorito");
 	// Todo: Manipudar classe com taggleClass, addClass e RemoveClass
 
 	// todo: Persistir dados em localStorage
@@ -85,7 +87,7 @@ function Mostjogos(jogos) {
 		<a href="${jogos[i].freetogame_profile_url}" id="freetogame_profile_url"> <div class="game" > <div><img src="${jogos[i].thumbnail}" id="thumbnail" alt=""></div></a>
 		<div id="alinhar_text_botao">
 			<h4 id="title">${jogos[i].title}</h4>
-			<button class="btn_favoritar" onclick="favo(${jogos[i].id})" ><span class="material-symbols-outlined">star</span></button>
+			<button class="btn_favoritar " onclick="favo(${jogos[i].id}, ${i-1})" ><span class="material-symbols-outlined">star</span></button>
 		</div>
 		</div>
 		</div>`;
