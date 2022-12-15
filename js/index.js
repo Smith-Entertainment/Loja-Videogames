@@ -10,8 +10,8 @@ let buttonMostrarMais = document.getElementById("btn_carregar_mais");
 const TODOS_JOGOS = [];
 
 
-let slc_gen = "";
-let slc_plat = "all";
+let slc_gen = ["", 0];
+let slc_plat = ["all", 2];
 const FAVORITOS = pegar_db();
 
 console.log(FAVORITOS);
@@ -55,19 +55,38 @@ function ver_favorito() {
 	}
 }
 
-const selecao_genero = (gen) => {
+const selecao_genero = (gen, index) => {
 	if (quantJogos > 10) {
 		quantJogos = 10;
 	}
 
+	generos[slc_gen[1]].classList.remove("active_gen");
+
 	if (gen == "home") {
-		slc_gen = "";
+		slc_gen = ["", index];
 	}
 	else {
-		slc_gen = gen;
+		slc_gen = [gen, index];
 	}
 
-	verJogos(slc_gen, slc_plat);
+	generos[index].classList.add("active_gen");
+
+	verJogos(slc_gen[0], slc_plat[0]);
+}
+
+
+const selecao_plataforma = (plat, index) => {
+
+	plataforma[slc_plat[1]].classList.remove("active_plat");
+
+	if (quantJogos > 10) {
+		quantJogos = 10;
+	}
+
+	plataforma[index].classList.add("active_plat");
+
+	slc_plat = [plat, index];
+	verJogos(slc_gen[0], slc_plat[0]);
 }
 
 function salvar_db(jogo_favorito){
@@ -96,17 +115,9 @@ function pegar_db(){
 	return favoritos;
 }
 
-const selecao_plataforma = (plat) => {
-	if (quantJogos > 10) {
-		quantJogos = 10;
-	}
-	slc_plat = plat;
-	verJogos(slc_gen, slc_plat);
-}
-
 function somarJogos() {
 	quantJogos += 10;
-	verJogos(slc_gen, slc_plat);
+	verJogos(slc_gen[0], slc_plat[0]);
 }
 
 function Mostjogos(jogos) {
@@ -164,20 +175,20 @@ const verJogos = (category, plataform) => {
 		.catch(err => console.error(err));
 }
 
-verJogos(slc_gen, slc_plat);
+verJogos(slc_gen[0], slc_plat[0]);
 
-generos[0].addEventListener("click", () => selecao_genero(generos[0].id));
-generos[1].addEventListener("click", () => selecao_genero(generos[1].id));
-generos[2].addEventListener("click", () => selecao_genero(generos[2].id));
-generos[3].addEventListener("click", () => selecao_genero(generos[3].id));
-generos[4].addEventListener("click", () => selecao_genero(generos[4].id));
-generos[5].addEventListener("click", () => selecao_genero(generos[5].id));
-generos[6].addEventListener("click", () => selecao_genero(generos[6].id));
-generos[7].addEventListener("click", () => selecao_genero(generos[7].id));
+generos[0].addEventListener("click", () => selecao_genero(generos[0].id, 0));
+generos[1].addEventListener("click", () => selecao_genero(generos[1].id, 1));
+generos[2].addEventListener("click", () => selecao_genero(generos[2].id, 2));
+generos[3].addEventListener("click", () => selecao_genero(generos[3].id, 3));
+generos[4].addEventListener("click", () => selecao_genero(generos[4].id, 4));
+generos[5].addEventListener("click", () => selecao_genero(generos[5].id, 5));
+generos[6].addEventListener("click", () => selecao_genero(generos[6].id, 6));
+generos[7].addEventListener("click", () => selecao_genero(generos[7].id, 7));
 
-plataforma[0].addEventListener("click", () => selecao_plataforma(plataforma[0].id));
-plataforma[1].addEventListener("click", () => selecao_plataforma(plataforma[1].id));
-plataforma[2].addEventListener("click", () => selecao_plataforma(plataforma[2].id));
+plataforma[0].addEventListener("click", () => selecao_plataforma(plataforma[0].id, 0));
+plataforma[1].addEventListener("click", () => selecao_plataforma(plataforma[1].id, 1));
+plataforma[2].addEventListener("click", () => selecao_plataforma(plataforma[2].id, 2));
 
 click_favoritos.addEventListener('click', ver_favorito);
 buttonMostrarMais.addEventListener('click', somarJogos);

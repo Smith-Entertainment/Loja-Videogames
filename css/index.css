@@ -37,14 +37,18 @@ body {
     color: #45F3FF;
     text-align: start;
     cursor: pointer;
-}
-
-#as-menu :hover {
-    background-color: #34353D;
     border-radius: 7px;
 }
 
-#as-menu h4:hover {
+.active_gen {
+    background-color: #34353D;
+}
+
+.active_plat {
+    text-decoration: underline;
+}
+
+#as-menu :hover {
     color: #FFFFFF;
 }
 
