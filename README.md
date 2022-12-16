@@ -18,3 +18,4 @@ UC 09. Deve ser possível consultar elementos favoritados.
 UC 10. Ao clicar em um jogo, deve abrir uma nova aba que navega até a página oficial do jogo no site freetogame.
 
 Com isso em mente, focamos em deixar o mais fiel possivel ao nosso protótipo de alta fidelidade e com as funcionalidades requisitadas.
+Git hub pages: <https://smith-entertainment.github.io/Loja-Videogames/> Figma: <https://www.figma.com/file/gghqwtI1XJNlbtu4NjpaLX/Smith-Games---API-FreeToGame?node-id=0%3A1&t=5UiGWyWRfSoQzO7K-1>
