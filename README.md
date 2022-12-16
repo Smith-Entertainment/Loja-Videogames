@@ -1,6 +1,6 @@
 # Usando a API FreeToGame
 
-# Exercicio proposto pela Uniamérica, com o intuito de fazer uso da API pública do site Free to Game, onde visa os seguintes requisitos:
+Exercicio proposto pela Uniamérica, com o intuito de fazer uso da API pública do site Free to Game, onde visa os seguintes requisitos:
 
 Com base nos wireframes, o grupo deve desenvolver a aplicação web funcional de um catálogo de jogos. Os dados devem ser consulmidos da API pública ‘freetogame’ <https://www.freetogame.com/api-doc>.
 
